@@ -1,0 +1,1359 @@
+<!DOCTYPE html><html lang="pt-br"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LOGOS Company - Criação de Sites, Lojas Virtuais e Landing Pages de alta conversão.">
+    <title>LOGOS Company | Sites que Vendem</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo-favicon.JPG" type="image/png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Remix Icons -->
+    <link href="css/remixicon.css" rel="stylesheet">
+
+    <style>
+        :root {
+            /* PALETA OFICIAL LOGOS (ESTILO HUBLÁ) */
+            --primary: #8a2be2;         /* Verde Principal - Único Verde Permitido */
+            --primary-hover: #8a2be2;   /* Mantém a mesma cor no hover para consistência */
+            
+            --bg-dark: #0C0C0C;         /* Preto Premium (Fundo Principal) */
+            --bg-secondary: #111111;    /* Preto Suave (Seções Secundárias) */
+            --bg-card: #1A1A1A;         /* Cinza Médio (Cards/Borders) */
+            
+            --text-main: #FFFFFF;       /* Branco Puro */
+            --text-muted: #C8C8C8;      /* Cinza Claro */
+            
+            --border: rgba(255, 255, 255, 0.1);
+            --border-highlight: #8a2be2; /* Verde Principal */
+            
+            /* TIPOGRAFIA */
+            --font-display: 'DM Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* Grid Tecnológico Sutil - RGBA(197, 212, 53) = #8a2be2 */
+            background-image: 
+                linear-gradient(rgba(197, 212, 53, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(197, 212, 53, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; border: 1px solid var(--bg-dark); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        /* Typography Updates */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            line-height: 1.15;
+            color: var(--text-main);
+        }
+
+        h1 { font-weight: 800; } /* ExtraBold */
+        h2 { font-weight: 700; } /* Bold */
+        h3 { font-weight: 600; } /* SemiBold */
+        
+        /* Ajuste de tamanhos globais para consistência */
+        h1.titulo-fixo { font-size: clamp(40px, 6vw, 64px); }
+        h2.titulo-fixo { font-size: clamp(32px, 5vw, 42px); }
+        h3 { font-size: clamp(24px, 4vw, 30px); }
+
+        /* NOVA CLASSE GLOBAL PARA TÍTULOS FIXOS */
+        .titulo-fixo {
+            max-width: 520px;
+            word-break: normal;
+            white-space: normal;
+            hyphens: none;
+        }
+        
+        /* Custom Hero Title - 3 Linhas Fixas */
+        .hero-title-custom {
+            font-family: var(--font-display);
+            font-weight: 600;
+            line-height: 1.05;
+            max-width: 680px;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            color: var(--text-main);
+            /* Desktop Default */
+            font-size: 48px;
+            text-align: left;
+        }
+
+        @media (max-width: 992px) {
+            .hero-title-custom {
+                font-size: 40px; /* Tablet constraint */
+                text-align: center; /* Maintains layout harmony on mobile/tablet */
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title-custom {
+                font-size: 32px; /* Mobile constraint */
+            }
+        }
+        
+        p {
+            line-height: 1.6;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-weight: 400; /* Regular */
+            font-size: 1.125rem; /* ~18px */
+        }
+
+        a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+        ul { list-style: none; }
+
+        /* Utilities */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* BUTTONS HARMONY UPGRADE - HUBLÁ STYLE */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 36px;
+            font-weight: 600; /* SemiBold */
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            font-size: 1.125rem; /* 18px */
+            position: relative;
+            overflow: hidden;
+            text-transform: none;
+            letter-spacing: 0;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary); /* #8a2be2 */
+            color: #0C0C0C !important; /* Preto Suave */
+            border: none;
+            box-shadow: none;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-hover); /* #8a2be2 */
+            opacity: 0.9; /* Slight opacity change instead of color change to maintain single green rule */
+            transform: translateY(-2px);
+            color: #0C0C0C !important;
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .btn-outline:hover {
+            background: rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
+            border-color: var(--primary);
+            color: white;
+        }
+
+        /* Header Specific Button (Desktop Only) */
+        .header-cta {
+            display: none;
+            padding: 10px 24px !important;
+            font-size: 1rem !important; /* Slightly smaller for header */
+            border-radius: 8px;
+        }
+
+        @media (min-width: 993px) {
+            .header-cta {
+                display: inline-flex;
+            }
+        }
+
+        /* MOBILE MENU SPECIFIC BUTTON */
+        .mobile-menu-cta {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: #0C0C0C !important;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-top: 24px;
+            text-decoration: none;
+            width: 100%;
+            font-family: var(--font-body);
+        }
+
+        @media (max-width: 992px) {
+            .mobile-menu-cta {
+                display: flex;
+            }
+        }
+
+        /* ULTRA PREMIUM REFLECTIVE GRADIENT */
+        .text-gradient {
+            background: linear-gradient(
+                110deg,
+                #8a2be2 15%,
+                #8a2be2 35%, 
+                #ffffff 50%, 
+                #8a2be2 65%, 
+                #8a2be2 85%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: luxuryShine 3s linear infinite;
+            filter: drop-shadow(0 0 30px rgba(197, 212, 53, 0.3)); 
+            display: inline;
+            font-weight: 600;
+        }
+
+        @keyframes luxuryShine {
+            0% { background-position: 0% center; }
+            100% { background-position: -200% center; }
+        }
+
+        .section-light {
+            background: var(--bg-secondary); /* #111111 Preto Suave */
+            color: var(--text-main);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .section-light p { color: var(--text-muted); }
+        .section-light h2, .section-light h3 { color: var(--text-main); }
+
+        .section-header {
+            text-align: center;
+            max-width: 90%;
+            margin: 0 auto 60px;
+        }
+
+        .section-tag {
+            color: #FFFFFF;
+            background-color: transparent; 
+            border: 1px solid var(--border);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.75rem;
+            margin-bottom: 16px;
+            display: inline-block;
+            font-family: var(--font-body);
+        }
+
+        .section-title.titulo-fixo {
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        
+        /* TOP BAR */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: var(--primary);
+            color: #0C0C0C;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* HEADER & NAVIGATION FIX */
+        header {
+            position: fixed;
+            top: 30px; /* Offset by top bar height */
+            width: 100%;
+            z-index: 1000;
+            background: rgba(12, 12, 12, 0.85); /* #0C0C0C com transparência */
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            height: 90px;
+        }
+
+        /* Container principal do Header */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            position: relative;
+            /* Removemos justify-content: space-between para controlar via flex-grow */
+        }
+
+        /* 1) LOGO WRAPPER: Empurra para a esquerda e ocupa espaço disponível */
+        .nav-container > a:first-child {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Garante alinhamento à esquerda (com o grid) */
+        }
+
+        .logo-img {
+            height: 188px;
+            width: auto;
+            display: block;
+        }
+
+        /* 2) MENU LINKS: Centralizado naturalmente pelo fluxo */
+        .nav-links { 
+            display: flex; 
+            gap: 32px; 
+            /* CORREÇÃO: Removemos position absolute */
+            position: static;
+            transform: none;
+            margin: 0;
+            flex: 0 0 auto; /* Não estica nem encolhe */
+        }
+
+        .nav-link {
+            font-family: var(--font-body);
+            font-size: 1rem; /* 16px */
+            font-weight: 500; /* Medium */
+            position: relative;
+            color: #FFFFFF;
+            white-space: nowrap;
+        }
+
+        .nav-link:hover { color: var(--primary); }
+        
+        /* 3) CTA WRAPPER: Empurra para a direita e ocupa espaço disponível */
+        .nav-container > div:last-child {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Garante alinhamento à direita */
+            gap: 15px;
+        }
+        
+        .mobile-menu-btn { display: none; font-size: 1.5rem; color: white; cursor: pointer; }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 120px; /* 90px header + 30px topbar */
+            overflow: hidden;
+            background: var(--bg-dark); /* #0C0C0C */
+        }
+        
+        .hero-spotlight {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(197, 212, 53, 0.1), transparent 70%); /* RGBA match #8a2be2 */
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-bg-effect {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(197, 212, 53, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(197, 212, 53, 0.05) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+            -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+            transform: perspective(1000px) rotateX(15deg) scale(1.2);
+            transform-origin: top center;
+            opacity: 0.7;
+            z-index: 0;
+            animation: gridFloat 20s linear infinite;
+        }
+
+        @keyframes gridFloat {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 60px; }
+        }
+
+        .hero::before {
+            content: ''; position: absolute; top: -20%; right: -10%;
+            width: 900px; height: 900px; 
+            background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
+            filter: blur(100px); opacity: 0.15; 
+            z-index: 0;
+            animation: pulseGlow 6s ease-in-out infinite alternate;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -10%; left: -20%;
+            width: 800px; height: 800px; 
+            background: radial-gradient(circle, #8a2be2 0%, transparent 60%);
+            filter: blur(120px); opacity: 0.1; 
+            z-index: 0;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.15; transform: scale(1); }
+            100% { opacity: 0.25; transform: scale(1.05); }
+        }
+
+        .hero-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        }
+
+        .hero-content { margin-top: 40px; }
+
+        /* O estilo específico do H1 do hero foi movido para .hero-title-custom */
+
+        .hero-subtitle { font-size: 1.125rem; margin-bottom: 32px; max-width: 540px; }
+
+        .hero-features {
+            display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;
+        }
+
+        .hero-feat-item { display: flex; align-items: center; gap: 12px; color: var(--text-main); font-weight: 500; }
+
+        .hero-actions {
+            display: flex; gap: 16px; margin-bottom: 24px;
+            justify-content: flex-start; 
+        }
+
+        /* CARD HERO */
+        .hero-card {
+            background: rgba(26, 26, 26, 0.5); /* #1A1A1A base */
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 35px;
+            transform: perspective(1000px) rotateY(-12deg) rotateX(5deg);
+            box-shadow: 
+                -20px 20px 60px rgba(0,0,0,0.8),
+                0 0 30px rgba(197, 212, 53, 0.05); /* RGBA of #8a2be2 */
+            transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative; z-index: 2;
+        }
+        
+        .hero-card::after {
+            content: ''; position: absolute; inset: 0; border-radius: 24px;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.03); pointer-events: none;
+        }
+
+        .hero-card:hover {
+            transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-10px);
+            box-shadow: 
+                0 30px 80px rgba(0, 0, 0, 0.8),
+                0 0 50px rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
+            border-color: rgba(197, 212, 53, 0.2); /* RGBA of #8a2be2 */
+        }
+
+        /* Why Section */
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .why-card {
+            background: var(--bg-card); /* #1A1A1A */
+            border: 1px solid var(--border);
+            border-radius: 20px; padding: 40px; height: 100%;
+        }
+        .why-card.negative { background: var(--bg-card); border-color: #333; }
+        .why-card.positive { background: var(--bg-card); border-color: var(--primary); }
+        
+        .why-list li { display: flex; align-items: start; gap: 16px; margin-bottom: 20px; color: var(--text-muted); }
+        .why-icon { flex-shrink: 0; font-size: 1.25rem; }
+
+        /* Site vs Instagram */
+        .vs-section { 
+            background: var(--bg-dark); /* #0C0C0C */
+            position: relative;
+        }
+        .vs-section::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            opacity: 0.5;
+        }
+
+        .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .vs-card {
+            background: var(--bg-card); /* #1A1A1A */
+            border: 1px solid var(--border);
+            padding: 40px; border-radius: 24px; text-align: center; transition: 0.4s;
+        }
+        .vs-card:hover { 
+            transform: translateY(-10px); 
+            background: #222; 
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* Services */
+        .services-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
+        }
+        .service-card {
+            background: var(--bg-card); /* #1A1A1A */
+            border: 1px solid var(--border-highlight); /* Verde #8a2be2 para todas */
+            border-radius: 20px; 
+            padding: 32px; 
+            transition: 0.3s;
+            color: var(--text-main);
+        }
+        .service-card p {
+            color: var(--text-muted);
+        }
+        .service-card:hover {
+            border-color: var(--primary); 
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            width: 50px; height: 50px;
+            background: rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 24px; color: var(--primary);
+        }
+
+        /* Portfolio */
+        .portfolio-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+        }
+        .portfolio-item {
+            border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border); background: var(--bg-card);
+            cursor: pointer; transition: 0.4s ease; position: relative;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-8px); 
+            border-color: var(--primary);
+        }
+        .port-thumb-container {
+            width: 100%; height: 350px; overflow: hidden; position: relative;
+        }
+        .port-thumb-img {
+            width: 100%; height: 100%; object-fit: cover; object-position: top;
+            transition: transform 0.6s ease;
+        }
+        .portfolio-item:hover .port-thumb-img { transform: scale(1.05); }
+        
+        .portfolio-overlay {
+            position: absolute; inset: 0; 
+            background: rgba(197, 212, 53, 0.9); /* RGBA of #8a2be2 */
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s ease; backdrop-filter: blur(4px); gap: 10px;
+        }
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-overlay span { font-weight: 700; color: #0C0C0C; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1px; }
+        .portfolio-overlay i { font-size: 2.5rem; color: #0C0C0C; }
+
+        .port-info { padding: 24px; background: #161616; border-top: 1px solid var(--border); }
+        .port-tag { font-size: 0.75rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; display: block; }
+        .port-info h3 { font-size: 1.25rem; margin-bottom: 8px; color: white; white-space: normal; } 
+
+        /* Modal */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; overflow: hidden;
+            background-color: rgba(0,0,0,0.95); backdrop-filter: blur(15px);
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal.show { display: flex; opacity: 1; }
+        .modal-content-wrapper {
+            position: relative; width: 90%; max-width: 1000px; height: 90vh;
+            margin: auto; background: var(--bg-dark); border-radius: 12px;
+            overflow: hidden; display: flex; flex-direction: column;
+            border: 1px solid rgba(255,255,255,0.1); 
+        }
+        .modal-header {
+            padding: 20px; background: #0A101F; display: flex;
+            justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .modal-title-box h3 { color: white; font-size: 1.2rem; }
+        .modal-title-box p { font-size: 0.9rem; color: var(--text-muted); }
+        .close-modal { color: #94a3b8; font-size: 28px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .close-modal:hover { color: white; }
+        .modal-body { flex: 1; overflow-y: auto; background: var(--bg-dark); }
+        .modal-full-img { width: 100%; height: auto; display: block; }
+
+        /* Process */
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
+        .step-card { text-align: center; position: relative; }
+        .step-num {
+            font-size: 5rem; font-weight: 800;
+            font-family: var(--font-display); margin-bottom: -30px; display: block; z-index: 0;
+            opacity: 1;
+            /* Degradê Transparente para Verde Oficial #8a2be2 */
+            background: linear-gradient(to bottom, rgba(197, 212, 53, 0), #8a2be2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .step-content {
+            background: var(--bg-card); /* #1A1A1A */
+            border: 1px solid var(--border);
+            padding: 24px; border-radius: 16px; position: relative; z-index: 1;
+        }
+        .step-content h3 { color: #FFFFFF; }
+        .step-content p { color: var(--text-muted); }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-card); /* #1A1A1A */
+            border: 1px solid var(--border);
+            margin-bottom: 16px; border-radius: 12px; overflow: hidden;
+        }
+        .faq-question {
+            padding: 20px 24px; cursor: pointer; display: flex;
+            justify-content: space-between; align-items: center; font-weight: 600;
+            transition: 0.3s; color: var(--text-main);
+        }
+        .faq-question:hover { background: #222; color: var(--primary); }
+        .faq-answer {
+            padding: 0 24px; max-height: 0; overflow: hidden;
+            transition: all 0.3s ease; color: var(--text-muted);
+        }
+        .faq-answer.active { padding: 0 24px 24px; max-height: 200px; }
+
+        /* Footer */
+        footer { background: #050505; padding: 80px 0 40px; border-top: 1px solid var(--border); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-bottom: 60px; }
+        .footer-logo { height: 68px; margin-bottom: 24px; opacity: 0.9; transition: 0.3s; }
+        .footer-logo:hover { opacity: 1; }
+
+        /* Floating Button - Ajustado para Verde */
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background-color: var(--primary); /* #8a2be2 */
+            color: #0C0C0C; /* Ícone Preto */
+            border-radius: 50px;
+            text-align: center; font-size: 30px; z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: var(--primary-hover); /* #8a2be2 */
+        }
+
+        .fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Helper for Mobile Breaks */
+        .mobile-br { display: none; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content { margin-top: 100px; order: 1; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; }
+            .hero-card-container { order: 2; margin-top: 15px; margin-bottom: 40px; display: flex; justify-content: center; }
+            .hero-card { transform: rotateY(0) rotateX(0); max-width: 400px; width: 100%; }
+            .hero-actions { 
+                justify-content: center; 
+                flex-direction: column; 
+                width: 100%;
+                gap: 15px; 
+                margin-bottom: 10px;
+            }
+            .hero-actions .btn { width: 100%; }
+            .hero-features { align-items: center; }
+            .why-grid, .vs-grid, .footer-grid, .process-steps { grid-template-columns: 1fr; }
+            
+            /* RESET Mobile Menu Behavior */
+            .nav-links {
+                display: none; 
+                position: absolute; /* Revert to absolute for dropdown functionality */
+                top: 90px; 
+                left: 0;
+                width: 100%; 
+                background: rgba(12, 12, 12, 0.98); 
+                flex-direction: column;
+                padding: 40px; 
+                border-bottom: 1px solid var(--border);
+                transform: none; 
+                margin: 0; /* Reset desktop margin */
+                gap: 32px;
+            }
+            .nav-links.active { display: flex; }
+            
+            /* Reset sibling push behavior for mobile */
+            .nav-container {
+                justify-content: flex-end;
+                position: relative;
+            }
+            .nav-container > a:first-child {
+                flex: initial;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                justify-content: center;
+            }
+            .nav-container > div:last-child {
+                flex: initial;
+                margin-left: auto;
+                z-index: 2;
+            }
+            
+            .mobile-menu-btn { display: block; }
+        }
+
+        /* MOBILE SPECIFIC ADJUSTMENTS (Max 767px) */
+        @media (max-width: 767px) {
+            /* 1) Larger centered logo on mobile */
+            .logo-img { height: 160px; }
+            .footer-logo { height: 160px; }
+
+            /* 2) Reduce Spacing Header to Hero Title */
+            .hero-content { margin-top: 15px !important; }
+
+            /* 3) Align Hero Card Content to Left */
+            .hero-card { text-align: left !important; }
+            .hero-card h3 { text-align: left !important; }
+            
+            /* 4) Center ONLY titles of Why Cards */
+            .why-card { text-align: left; }
+            .why-card h3 { text-align: center !important; }
+
+            /* 5 & 6) Enable specific line breaks */
+            .mobile-br { display: inline; }
+        }
+
+        /* 8) DESKTOP ADJUSTMENT: Align main hero text with logo */
+        @media (min-width: 768px) {
+            .hero-grid {
+                text-align: left;
+                justify-items: start;
+            }
+            .hero-content {
+                /* Logo is inside .container which has padding-left: 24px.
+                   Hero content is inside .hero-grid which is also .container (padding-left: 24px).
+                   To align exactly, we must ensure internal margins/paddings are 0. */
+                margin-left: 0;
+                padding-left: 0;
+                text-align: left;
+                margin-right: auto;
+                width: 100%;
+            }
+            .hero-title-custom,
+            .hero-subtitle {
+                margin-left: 0;
+                padding-left: 0;
+                text-align: left;
+                margin-right: auto;
+            }
+            .hero-actions {
+                justify-content: flex-start;
+                margin-left: 0;
+            }
+        }
+    </style>
+<link rel="stylesheet" href="/index.css">
+  <script type="module" crossorigin="" src="js/index-B5Qt9EMX.js"></script>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        SITES QUE VENDEM MAIS
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="#">
+                <img src="images/LOGO-LOGOS.png" alt="LOGOS Company" class="logo-img">
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#inicio" class="nav-link">Início</a>
+                <a href="#por-que" class="nav-link">Por Que Ter Um Site?</a>
+                <a href="#servicos" class="nav-link">Serviços</a>
+                <a href="#processo" class="nav-link">Processo</a>
+                <a href="#portfolio" class="nav-link">Portfólio</a>
+                <a href="#planos" class="nav-link">Planos</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                
+                <!-- 7) Button inside menu for mobile -->
+                <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="mobile-menu-cta">
+                    <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
+                </a>
+            </nav>
+
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary header-cta">
+                    <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
+                </a>
+                <div class="mobile-menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-spotlight"></div>
+        <div class="hero-bg-effect"></div>
+        <div class="container hero-grid" style="position: relative; z-index: 2;">
+            <div class="hero-content fade-up">
+                <!-- Título principal - Ajustado para max-width específico -->
+                <h1 class="hero-title-custom">
+                    Venda Mais Com<br>
+                    Um <span class="text-gradient">Site Profissional</span><br>
+                    Da LOGOS Company
+                </h1>
+                <p class="hero-subtitle">Criamos sites, lojas virtuais e landing pages que geram autoridade, confiança e conversão para o seu negócio.</p>
+                
+                <div class="hero-actions">
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary">Quero Um Site Que Vende</a>
+                    <a href="#portfolio" class="btn btn-outline">Ver Projetos</a>
+                </div>
+                
+                <!-- Mini Prova Social Atualizada -->
+                <div style="display: flex; align-items: center; gap: 12px; margin-top: 30px;">
+                     <div style="display: flex; margin-left: 10px;">
+                        <!-- Placeholders de avatar simples -->
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/32.jpg'); background-size: cover;"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/44.jpg'); background-size: cover;"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/85.jpg'); background-size: cover;"></div>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #C8C8C8; font-weight: 500; max-width: 280px; line-height: 1.3;">
+                        +3.500 clientes atendidos <span style="color: #FFFFFF;">⭐⭐⭐⭐⭐</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="hero-card-container fade-up">
+                <div class="hero-card">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+                        <span style="background: #FAFAFA; color: #8a2be2; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(197, 212, 53, 0.3);">PROJETO PREMIUM</span>
+                        <div style="display: flex; gap: 6px;">
+                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 5px #ff5f56;"></div>
+                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e; box-shadow: 0 0 5px #ffbd2e;"></div>
+                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #8a2be2; box-shadow: 0 0 5px #8a2be2;"></div>
+                        </div>
+                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: white;">Alta conversão</h3>
+                    <div style="margin-bottom: 25px; color: #C8C8C8; display:flex; flex-direction: column; gap: 8px;">
+                         <!-- Novos bullets mais fortes -->
+                         <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Textos profissionais focados em conversão</div>
+                         <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Design premium que transmite autoridade</div>
+                         <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Velocidade máxima no Google (Core Web Vitals A+)</div>
+                         <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Copy pronta para vender desde o primeiro dia</div>
+                    </div>
+                    
+                    <div style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+                        <div style="width: 45px; height: 45px; background: #333; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;"><i class="ri-user-star-line"></i></div>
+                        <div>
+                            <p style="font-size: 0.9rem; color: white; margin-bottom: 2px; font-weight: 600;">"Meu faturamento dobrou."</p>
+                            <span style="font-size: 0.75rem; color: var(--primary); text-transform: uppercase;">Cliente satisfeito</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por que ter um site -->
+    <section id="por-que" class="section-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Importância Digital</span>
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo" style="max-width: 13em;">Seu Negócio Precisa De Um <span class="text-gradient">Site Profissional</span>?</h2>
+                <p>Sem um site bem feito, você perde autoridade, confiança e vendas todos os dias.</p>
+            </div>
+
+            <div class="why-grid fade-up">
+                <!-- Sem site -->
+                <div class="why-card negative">
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: #ff8fa3; margin-bottom: 24px; font-size: 1.5rem;">Sem site profissional</h3>
+                    <ul class="why-list">
+                        <li style="color: #C8C8C8;"><i class="ri-error-warning-line why-icon" style="color: #ff8fa3;"></i> Seu cliente não encontra informações claras.</li>
+                        <li style="color: #C8C8C8;"><i class="ri-error-warning-line why-icon" style="color: #ff8fa3;"></i> Sua marca parece amadora ou desatualizada.</li>
+                        <li style="color: #C8C8C8;"><i class="ri-error-warning-line why-icon" style="color: #ff8fa3;"></i> Você depende apenas de redes sociais.</li>
+                    </ul>
+                </div>
+
+                <!-- Com LOGOS -->
+                <div class="why-card positive">
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: #8a2be2; margin-bottom: 24px; font-size: 1.5rem;">Com site LOGOS Company</h3>
+                    <ul class="why-list">
+                        <li style="color: #C8C8C8;"><i class="ri-checkbox-circle-line why-icon" style="color: #8a2be2;"></i> Posicionamento profissional e autoridade imediata.</li>
+                        <li style="color: #C8C8C8;"><i class="ri-checkbox-circle-line why-icon" style="color: #8a2be2;"></i> Estrutura pensada para converter visitas em contatos.</li>
+                        <li style="color: #C8C8C8;"><i class="ri-checkbox-circle-line why-icon" style="color: #8a2be2;"></i> Sua marca no ar 24h por dia, 7 dias por semana.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Site vs Instagram -->
+    <section class="vs-section" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Comparativo</span>
+                <!-- Novo título Title Case - Ajustado com quebra de linha forçada -->
+                <h2 class="section-title titulo-fixo" style="max-width: 950px; color: #FFFFFF; font-weight: 600; text-shadow: none;">
+                    Por Que <span class="text-gradient">Só O Instagram Não<br>É Suficiente</span> Para Vender?
+                </h2>
+            </div>
+
+            <div class="vs-grid fade-up">
+                <div class="vs-card">
+                    <i class="ri-instagram-line vs-icon-lg" style="color: #d62976; font-size: 3rem; margin-bottom: 24px;"></i>
+                    <!-- H3 Sentence case -->
+                    <h3>Só Instagram</h3>
+                    <p style="margin-top: 16px;">Você depende do algoritmo, seu conteúdo some com o tempo e seu perfil é igual a milhares de outros.</p>
+                </div>
+                <div class="vs-card" style="border-color: var(--primary); background: rgba(197, 212, 53, 0.02);">
+                    <div style="display: flex; justify-content: center; gap: 10px; align-items: center; margin-bottom: 24px;">
+                        <i class="ri-layout-line" style="color: var(--primary); font-size: 3rem;"></i>
+                        <span style="font-size: 2rem;">+</span>
+                        <i class="ri-instagram-line" style="color: white; font-size: 3rem;"></i>
+                    </div>
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: var(--primary);">Site + Instagram</h3>
+                    <p style="margin-top: 16px;">Centraliza informações, passa confiança profissional e transforma seguidores em clientes com estratégia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="section-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Nossas Soluções</span>
+                <!-- Título -->
+                <h2 class="section-title titulo-fixo" style="max-width: 1000px;"><span class="text-gradient">O Que A LOGOS Faz</span> Pelo Seu Negócio</h2>
+            </div>
+
+            <div class="services-grid fade-up">
+                <div class="service-card">
+                    <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
+                    <!-- H3 Sentence case -->
+                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Sites profissionais</h3>
+                    <p>Institucionais estratégicos para apresentar sua marca e gerar autoridade.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="ri-shopping-bag-3-line"></i></div>
+                    <!-- H3 Sentence case -->
+                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Lojas virtuais</h3>
+                    <p>Venda seus produtos online com segurança, experiência e conversão.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="ri-rocket-line"></i></div>
+                    <!-- H3 Sentence case -->
+                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Landing pages</h3>
+                    <p>Páginas de oferta única focadas em capturar leads ou vender produtos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Velocidade -->
+    <section style="background: linear-gradient(135deg, #0C0C0C 0%, #111111 100%); color: white; padding: 100px 0; position: relative; overflow: hidden;">
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('images/cubes.png'); opacity: 0.05;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-header fade-up" style="margin-bottom: 40px;">
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo" style="color: white;">Velocidade Do Site = <span class="text-gradient">Conversão</span></h2>
+                <p style="color: rgba(255,255,255,0.7);">Ninguém tem paciência para sites lentos. Otimizamos para máxima performance.</p>
+            </div>
+            
+            <div style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap; text-align: center;">
+                <div class="fade-up">
+                    <i class="ri-speed-up-line" style="font-size: 3.5rem; margin-bottom: 16px; display: block; color: var(--primary);"></i>
+                    <!-- H3 Sentence case -->
+                    <h3>Carregamento flash</h3>
+                </div>
+                <div class="fade-up">
+                    <i class="ri-smartphone-line" style="font-size: 3.5rem; margin-bottom: 16px; display: block; color: var(--primary);"></i>
+                    <!-- H3 Sentence case -->
+                    <h3>100% responsivo</h3>
+                </div>
+                <div class="fade-up">
+                    <i class="ri-cursor-line" style="font-size: 3.5rem; margin-bottom: 16px; display: block; color: var(--primary);"></i>
+                    <!-- H3 Sentence case -->
+                    <h3>UX otimizada</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nova Seção: Quem é a LOGOS Company -->
+    <section class="section-light" style="padding: 80px 0; background: var(--bg-secondary);">
+        <div class="container" style="text-align: center;">
+            <div class="section-header fade-up" style="margin-bottom: 30px;">
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo">Quem É A <span class="text-gradient">LOGOS Company</span></h2>
+            </div>
+            <p class="fade-up" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+                Somos especialistas em criação de sites que vendem. Já entregamos mais de 3500 projetos para profissionais e empresas que precisam de autoridade, velocidade e conversão.
+            </p>
+        </div>
+    </section>
+
+    <!-- Processo -->
+    <section id="processo" class="section-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Passo A Passo</span>
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo">Como Funciona</h2>
+            </div>
+
+            <div class="process-steps fade-up">
+                <div class="step-card">
+                    <span class="step-num">01</span>
+                    <div class="step-content">
+                        <!-- H3 Sentence case -->
+                        <h3 style="color: #FFFFFF;">Briefing</h3>
+                        <p style="font-size: 0.9rem;">Entendemos seu negócio e objetivos.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">02</span>
+                    <div class="step-content">
+                        <!-- H3 Sentence case -->
+                        <h3 style="color: #FFFFFF;">Design</h3>
+                        <p style="font-size: 0.9rem;">Criamos o layout exclusivo da sua marca.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">03</span>
+                    <div class="step-content">
+                        <!-- H3 Sentence case -->
+                        <h3 style="color: #FFFFFF;">Dev</h3>
+                        <p style="font-size: 0.9rem;">Programação e otimização de velocidade.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <span class="step-num">04</span>
+                    <div class="step-content">
+                        <!-- H3 Sentence case -->
+                        <h3 style="color: #FFFFFF;">Entrega</h3>
+                        <p style="font-size: 0.9rem;">Site no ar e suporte contínuo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Resultados Reais</span>
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo">Transformando <span class="text-gradient">Presenças Online</span></h2>
+                <p>Clique nos projetos para ver a experiência completa.</p>
+            </div>
+
+            <div class="portfolio-grid fade-up">
+                <!-- Gustavo Advogado -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png', 'Gustavo Advogado', 'Site Institucional Jurídico', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/Gustavo%2Badvogado.png" class="port-thumb-img" alt="Gustavo Advogado">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Advocacia</span><h3>Gustavo Advogado</h3><p>Credibilidade e autoridade jurídica.</p></div>
+                </div>
+                <!-- Lorena -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Lorena.png', 'Dra. Lorena', 'Clínica de Estética Avançada', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Lorena.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/Lorena.png" class="port-thumb-img" alt="Dra. Lorena">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Estética</span><h3>Dra. Lorena</h3><p>Design elegante focado em agendamentos.</p></div>
+                </div>
+                <!-- Zap Lucro -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Zap+Lucro.png', 'Zap Lucro', 'Landing Page para Software/SaaS', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Zap+Lucro.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/Zap%2BLucro.png" class="port-thumb-img" alt="Zap Lucro">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">SaaS</span><h3>Zap Lucro</h3><p>Alta conversão para ferramentas digitais.</p></div>
+                </div>
+                <!-- Desafios May -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/desafios+may.png', 'Desafios May', 'Página de Vendas de Infoproduto', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/desafios+may.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/desafios%2Bmay.png" class="port-thumb-img" alt="Desafios May">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Infoproduto</span><h3>Desafios May</h3><p>Landing page vibrante para cursos.</p></div>
+                </div>
+                <!-- Moises Mota -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/moises+mota+advogado.png', 'Moises Mota', 'Advocacia Trabalhista', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/moises+mota+advogado.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/moises%2Bmota%2Badvogado.png" class="port-thumb-img" alt="Moises Mota">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Institucional</span><h3>Moises Mota</h3><p>Sobriedade e confiança.</p></div>
+                </div>
+                <!-- Limpcred -->
+                <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/limpcred.png', 'Limpcred', 'Site Institucional Financeiro', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/limpcred.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/limpcred.png" class="port-thumb-img" alt="Limpcred">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Financeiro</span><h3>Limpcred</h3><p>Site corporativo.</p></div>
+                </div>
+                <!-- Ketlyn -->
+                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/ketlyn.png', 'Ketlyn Beauty', 'Portfólio de Beleza', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/ketlyn.png')">
+                    <div class="port-thumb-container">
+                        <img src="images/ketlyn.png" class="port-thumb-img" alt="Ketlyn Beauty">
+                        <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
+                    </div>
+                    <div class="port-info"><span class="port-tag">Beleza</span><h3>Ketlyn Beauty</h3><p>Personal branding para estética.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Planos -->
+    <section id="planos" style="padding: 100px 0; background: var(--bg-dark);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag" style="color: #FFFFFF !important;">Investimento</span>
+                <!-- H2 Title Case - Mobile Break Added -->
+                <h2 class="section-title titulo-fixo">Escolha O <br class="mobile-br"><span class="text-gradient">Plano Ideal</span></h2>
+            </div>
+
+            <div class="portfolio-grid fade-up">
+                <!-- Plano 1 -->
+                <div class="service-card" style="text-align: center; border-color: var(--primary);">
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Site Institucional</h3>
+                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 397</strong><br>Para empresas que precisam de presença digital sólida e profissional.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Até 5 páginas</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Design premium</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Layout totalmente responsivo</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> SEO básico</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Botões estratégicos de WhatsApp</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Estrutura voltada para autoridade e credibilidade</li>
+                    </ul>
+                </div>
+
+                <!-- Plano 2 (Destaque) -->
+                <div class="service-card" style="text-align: center; border-color: var(--primary);">
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Landing Page</h3>
+                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 197</strong><br>Perfeita para vendas rápidas, captar leads e campanhas de tráfego pago.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Página única de alta conversão</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Estrutura baseada em copywriting</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Seções focadas em benefícios e objeções</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Carregamento extremamente rápido</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Ideal para anúncios e lançamentos</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> CTAs otimizados para conversão</li>
+                    </ul>
+                </div>
+
+                <!-- Plano 3 -->
+                <div class="service-card" style="text-align: center; border-color: var(--primary);">
+                    <!-- H3 Sentence case -->
+                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Loja Virtual</h3>
+                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 749</strong><br>Para quem quer vender produtos online com uma estrutura completa.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> E-commerce profissional</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Painel administrativo intuitivo</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Cadastro de produtos</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Checkout integrado</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Meios de pagamento</li>
+                        <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Consultoria de lançamento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="section-header fade-up">
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo"><span class="text-gradient">Dúvidas</span> Frequentes</h2>
+            </div>
+            
+            <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
+                <div class="faq-item">
+                    <div class="faq-question">Em quanto tempo meu site fica pronto? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Geralmente entregamos a primeira versão em até 7 dias úteis após o recebimento do material, mas isso pode variar conforme a complexidade do projeto.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Posso atualizar sozinho depois? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Sim! as nossas lojas virtuais são desenvolvidos em plataformas amigáveis que permitem que você faça edições básicas de texto e imagem sem precisar de programador. E Sobre os demais, para entregrarmos em tempo recorde, com qualidade, fazemos com código, prestamos suporte para realizar mudanças mais complexas.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto custa para manter? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">O desenvolvimento do site é pagamento único. Você terá apenas os custos anuais básicos de domínio (seu nome.com.br) e hospedagem, que orientamos como contratar.</div>
+                </div>
+                 <div class="faq-item">
+                    <div class="faq-question">Eu ganho suporte? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Sim, oferecemos suporte completo após a publicação para garantir que tudo funcione perfeitamente.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">O que está incluído no valor? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Está incluído o design, desenvolvimento, configuração de domínio, otimização para celular, integração com WhatsApp e SEO básico.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section id="contato" style="background: var(--bg-dark); text-align: center; padding: 120px 0;">
+        <div class="container fade-up">
+            <!-- H2 Title Case -->
+            <h2 class="section-title titulo-fixo" style="max-width: 16em;">Pronto Para Ter Um Site Que <span class="text-gradient">Vende De Verdade?</span></h2>
+            
+            <!-- Urgência - Mobile Break Added -->
+            <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted);">Comece Hoje.<br class="mobile-br"> Seu Site Pronto Em Até 7 Dias.</p>
+            
+            <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">
+                <i class="ri-whatsapp-line" style="margin-right: 10px;"></i> Falar Agora Com a LOGOS
+            </a>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #C8C8C8;">Sites, lojas virtuais e landing pages.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="images/LOGO-LOGOS.png" alt="LOGOS Company" class="footer-logo">
+                    <p style="max-width: 400px; color: var(--text-muted);">A LOGOS Company cria soluções digitais focadas em resultado. Transformamos cliques em clientes com design estratégico.</p>
+                </div>
+                <div>
+                    <h4 style="color: white; margin-bottom: 20px;">Navegação</h4>
+                    <ul style="display: flex; flex-direction: column; gap: 12px;">
+                        <li><a href="#inicio" style="color: var(--text-muted);">Início</a></li>
+                        <li><a href="#servicos" style="color: var(--text-muted);">Serviços</a></li>
+                        <li><a href="#portfolio" style="color: var(--text-muted);">Portfólio</a></li>
+                        <li><a href="#contato" style="color: var(--text-muted);">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="text-align: center; padding-top: 40px; border-top: 1px solid rgba(255,255,255,0.05); color: #C8C8C8; font-size: 0.9rem;">
+                © 2026 LOGOS Company. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Whatsapp Float -->
+    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="whatsapp-float" target="_blank">
+        <i class="ri-whatsapp-line"></i>
+    </a>
+
+    <!-- Modal Box -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content-wrapper">
+            <div class="modal-header">
+                <div class="modal-title-box">
+                    <h3 id="modalTitle">Nome do projeto</h3>
+                    <p id="modalDesc">Descrição do projeto</p>
+                </div>
+                <span class="close-modal" onclick="closeModal()">�</span>
+            </div>
+            <div class="modal-body">
+                <img id="modalImg" src="" alt="Projeto Completo" class="modal-full-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.nextElementSibling;
+                const icon = item.querySelector('i');
+                answer.classList.toggle('active');
+                if(answer.classList.contains('active')) {
+                    icon.classList.remove('ri-add-line');
+                    icon.classList.add('ri-subtract-line');
+                } else {
+                    icon.classList.remove('ri-subtract-line');
+                    icon.classList.add('ri-add-line');
+                }
+            });
+        });
+
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        mobileBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => { navLinks.classList.remove('active'); });
+        });
+
+        const modal = document.getElementById('projectModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openProject(thumbUrl, title, desc, fullUrl) {
+            modal.classList.add('show');
+            modalImg.src = fullUrl;
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => { modalImg.src = ''; }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) { closeModal(); }
+        }
+    </script>
+
+</body></html>
