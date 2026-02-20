@@ -10,30 +10,31 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     
     <!-- Remix Icons -->
     <link href="css/remixicon.css" rel="stylesheet">
 
     <style>
         :root {
-            /* PALETA OFICIAL LOGOS (ESTILO HUBLÁ) */
-            --primary: #8a2be2;         /* Verde Principal - Único Verde Permitido */
-            --primary-hover: #8a2be2;   /* Mantém a mesma cor no hover para consistência */
-            
-            --bg-dark: #0C0C0C;         /* Preto Premium (Fundo Principal) */
-            --bg-secondary: #111111;    /* Preto Suave (Seções Secundárias) */
-            --bg-card: #1A1A1A;         /* Cinza Médio (Cards/Borders) */
-            
-            --text-main: #FFFFFF;       /* Branco Puro */
-            --text-muted: #C8C8C8;      /* Cinza Claro */
-            
-            --border: rgba(255, 255, 255, 0.1);
-            --border-highlight: #8a2be2; /* Verde Principal */
-            
+            /* PALETA OFICIAL LOGOS */
+            --primary: #8a2be2;
+            --primary-hover: #7a1fd4;
+            --primary-rgb: 138, 43, 226;
+
+            --bg-dark: #080808;
+            --bg-secondary: #0F0F0F;
+            --bg-card: #141414;
+
+            --text-main: #F5F5F5;
+            --text-muted: #9CA3AF;
+
+            --border: rgba(255, 255, 255, 0.07);
+            --border-highlight: #8a2be2;
+
             /* TIPOGRAFIA */
-            --font-display: 'DM Sans', sans-serif;
-            --font-body: 'Inter', sans-serif;
+            --font-display: 'Syne', sans-serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
         }
 
         * {
@@ -51,17 +52,52 @@
             background-color: var(--bg-dark);
             color: var(--text-main);
             overflow-x: hidden;
-            /* Grid Tecnológico Sutil - RGBA(197, 212, 53) = #8a2be2 */
-            background-image: 
-                linear-gradient(rgba(197, 212, 53, 0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(197, 212, 53, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+        }
+
+        ::selection {
+            background: rgba(138, 43, 226, 0.35);
+            color: #fff;
+        }
+
+        /* Film grain texture overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23grain)'/%3E%3C/svg%3E");
+            opacity: 0.032;
+            pointer-events: none;
+            z-index: 9998;
+            will-change: transform;
+            animation: grainShift 8s steps(10) infinite;
+        }
+
+        @keyframes grainShift {
+            0%   { transform: translate(0, 0); }
+            10%  { transform: translate(-3%, -8%); }
+            20%  { transform: translate(-12%, 4%); }
+            30%  { transform: translate(6%, -20%); }
+            40%  { transform: translate(-4%, 18%); }
+            50%  { transform: translate(-10%, 8%); }
+            60%  { transform: translate(12%, 0%); }
+            70%  { transform: translate(0%, 12%); }
+            80%  { transform: translate(3%, 26%); }
+            90%  { transform: translate(-8%, 8%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Staggered grid animations */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.55s ease-out, transform 0.55s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         /* Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: var(--bg-dark); }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; border: 1px solid var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
         /* Typography Updates */
@@ -71,9 +107,9 @@
             color: var(--text-main);
         }
 
-        h1 { font-weight: 800; } /* ExtraBold */
-        h2 { font-weight: 700; } /* Bold */
-        h3 { font-weight: 600; } /* SemiBold */
+        h1 { font-weight: 800; letter-spacing: -1.5px; }
+        h2 { font-weight: 700; letter-spacing: -0.75px; }
+        h3 { font-weight: 600; letter-spacing: -0.25px; }
         
         /* Ajuste de tamanhos globais para consistência */
         h1.titulo-fixo { font-size: clamp(40px, 6vw, 64px); }
@@ -91,14 +127,14 @@
         /* Custom Hero Title - 3 Linhas Fixas */
         .hero-title-custom {
             font-family: var(--font-display);
-            font-weight: 600;
+            font-weight: 800;
             line-height: 1.05;
             max-width: 680px;
             margin-bottom: 24px;
-            letter-spacing: -1px;
+            letter-spacing: -2.5px;
             color: var(--text-main);
             /* Desktop Default */
-            font-size: 48px;
+            font-size: 52px;
             text-align: left;
         }
 
@@ -155,30 +191,31 @@
         }
 
         .btn-primary {
-            background: var(--primary); /* #8a2be2 */
-            color: #0C0C0C !important; /* Preto Suave */
+            background: var(--primary);
+            color: #ffffff !important;
             border: none;
-            box-shadow: none;
+            box-shadow: 0 0 0 0 rgba(138, 43, 226, 0);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        
+
         .btn-primary:hover {
-            background: var(--primary-hover); /* #8a2be2 */
-            opacity: 0.9; /* Slight opacity change instead of color change to maintain single green rule */
+            background: var(--primary-hover);
             transform: translateY(-2px);
-            color: #0C0C0C !important;
+            box-shadow: 0 8px 30px rgba(138, 43, 226, 0.4), 0 0 0 1px rgba(138, 43, 226, 0.2);
+            color: #ffffff !important;
         }
 
         .btn-outline {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255,255,255,0.85);
             backdrop-filter: blur(10px);
             position: relative;
         }
 
         .btn-outline:hover {
-            background: rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
-            border-color: var(--primary);
+            background: rgba(138, 43, 226, 0.1);
+            border-color: rgba(138, 43, 226, 0.5);
             color: white;
         }
 
@@ -203,7 +240,7 @@
             justify-content: center;
             padding: 12px 24px;
             background: var(--primary);
-            color: #0C0C0C !important;
+            color: #ffffff !important;
             border-radius: 8px;
             font-weight: 600;
             margin-top: 24px;
@@ -218,24 +255,24 @@
             }
         }
 
-        /* ULTRA PREMIUM REFLECTIVE GRADIENT */
+        /* REFLECTIVE GRADIENT */
         .text-gradient {
             background: linear-gradient(
                 110deg,
-                #8a2be2 15%,
-                #8a2be2 35%, 
-                #ffffff 50%, 
-                #8a2be2 65%, 
-                #8a2be2 85%
+                #8a2be2 0%,
+                #b06be8 25%,
+                #e8c4ff 50%,
+                #b06be8 75%,
+                #8a2be2 100%
             );
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: luxuryShine 3s linear infinite;
-            filter: drop-shadow(0 0 30px rgba(197, 212, 53, 0.3)); 
+            animation: luxuryShine 4s linear infinite;
+            filter: drop-shadow(0 0 24px rgba(138, 43, 226, 0.35));
             display: inline;
-            font-weight: 600;
+            font-weight: inherit;
         }
 
         @keyframes luxuryShine {
@@ -256,20 +293,24 @@
         .section-header {
             text-align: center;
             max-width: 90%;
-            margin: 0 auto 60px;
+            margin: 0 auto 64px;
+        }
+        .section-header > p {
+            max-width: 560px;
+            margin: 0 auto;
         }
 
         .section-tag {
-            color: #FFFFFF;
-            background-color: transparent; 
-            border: 1px solid var(--border);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-weight: 600;
+            color: #c084fc;
+            background-color: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.3);
+            padding: 5px 14px;
+            border-radius: 4px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.75rem;
-            margin-bottom: 16px;
+            letter-spacing: 2px;
+            font-size: 0.68rem;
+            margin-bottom: 20px;
             display: inline-block;
             font-family: var(--font-body);
         }
@@ -288,16 +329,16 @@
             width: 100%;
             height: 30px;
             background: var(--primary);
-            color: #0C0C0C;
+            color: rgba(255,255,255,0.9);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1001;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 0.8rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         /* HEADER & NAVIGATION FIX */
@@ -348,14 +389,27 @@
 
         .nav-link {
             font-family: var(--font-body);
-            font-size: 1rem; /* 16px */
-            font-weight: 500; /* Medium */
+            font-size: 1rem;
+            font-weight: 500;
             position: relative;
-            color: #FFFFFF;
+            color: rgba(255,255,255,0.8);
             white-space: nowrap;
+            transition: color 0.25s ease;
         }
 
-        .nav-link:hover { color: var(--primary); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--primary);
+            transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .nav-link:hover { color: #c084fc; }
+        .nav-link:hover::after { width: 100%; }
         
         /* 3) CTA WRAPPER: Empurra para a direita e ocupa espaço disponível */
         .nav-container > div:last-child {
@@ -381,7 +435,7 @@
         
         .hero-spotlight {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% -20%, rgba(197, 212, 53, 0.1), transparent 70%); /* RGBA match #8a2be2 */
+            background: radial-gradient(ellipse at 50% -10%, rgba(138, 43, 226, 0.12), transparent 65%);
             z-index: 0;
             pointer-events: none;
         }
@@ -391,17 +445,17 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(197, 212, 53, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(197, 212, 53, 0.05) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(138, 43, 226, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
-            mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
-            -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
-            transform: perspective(1000px) rotateX(15deg) scale(1.2);
+            mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 0%, transparent 70%);
+            transform: perspective(1000px) rotateX(12deg) scale(1.15);
             transform-origin: top center;
-            opacity: 0.7;
+            opacity: 0.6;
             z-index: 0;
-            animation: gridFloat 20s linear infinite;
+            animation: gridFloat 25s linear infinite;
         }
 
         @keyframes gridFloat {
@@ -410,24 +464,24 @@
         }
 
         .hero::before {
-            content: ''; position: absolute; top: -20%; right: -10%;
-            width: 900px; height: 900px; 
-            background: radial-gradient(circle, var(--primary) 0%, transparent 60%);
-            filter: blur(100px); opacity: 0.15; 
+            content: ''; position: absolute; top: -15%; right: -5%;
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, #8a2be2 0%, transparent 65%);
+            filter: blur(120px); opacity: 0.12;
             z-index: 0;
-            animation: pulseGlow 6s ease-in-out infinite alternate;
+            animation: pulseGlow 7s ease-in-out infinite alternate;
         }
         .hero::after {
-            content: ''; position: absolute; bottom: -10%; left: -20%;
-            width: 800px; height: 800px; 
-            background: radial-gradient(circle, #8a2be2 0%, transparent 60%);
-            filter: blur(120px); opacity: 0.1; 
+            content: ''; position: absolute; bottom: -15%; left: -15%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, #6b21a8 0%, transparent 65%);
+            filter: blur(140px); opacity: 0.08;
             z-index: 0;
         }
 
         @keyframes pulseGlow {
-            0% { opacity: 0.15; transform: scale(1); }
-            100% { opacity: 0.25; transform: scale(1.05); }
+            0% { opacity: 0.12; transform: scale(1); }
+            100% { opacity: 0.2; transform: scale(1.06); }
         }
 
         .hero-grid {
@@ -435,6 +489,18 @@
         }
 
         .hero-content { margin-top: 40px; }
+
+        /* Hero load animation */
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content.fade-up.visible {
+            animation: heroFadeIn 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        .hero-card-container.fade-up.visible {
+            animation: heroFadeIn 0.8s 0.15s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
 
         /* O estilo específico do H1 do hero foi movido para .hero-title-custom */
 
@@ -453,42 +519,46 @@
 
         /* CARD HERO */
         .hero-card {
-            background: rgba(26, 26, 26, 0.5); /* #1A1A1A base */
+            background: rgba(20, 20, 20, 0.6);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
             padding: 35px;
-            transform: perspective(1000px) rotateY(-12deg) rotateX(5deg);
-            box-shadow: 
-                -20px 20px 60px rgba(0,0,0,0.8),
-                0 0 30px rgba(197, 212, 53, 0.05); /* RGBA of #8a2be2 */
+            transform: perspective(1000px) rotateY(-10deg) rotateX(4deg);
+            box-shadow:
+                -16px 20px 60px rgba(0,0,0,0.7),
+                0 0 40px rgba(138, 43, 226, 0.06);
             transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
             position: relative; z-index: 2;
         }
-        
+
         .hero-card::after {
-            content: ''; position: absolute; inset: 0; border-radius: 24px;
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.03); pointer-events: none;
+            content: ''; position: absolute; inset: 0; border-radius: 20px;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); pointer-events: none;
         }
 
         .hero-card:hover {
             transform: perspective(1000px) rotateY(0) rotateX(0) translateY(-10px);
-            box-shadow: 
-                0 30px 80px rgba(0, 0, 0, 0.8),
-                0 0 50px rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
-            border-color: rgba(197, 212, 53, 0.2); /* RGBA of #8a2be2 */
+            box-shadow:
+                0 30px 80px rgba(0, 0, 0, 0.7),
+                0 0 50px rgba(138, 43, 226, 0.12);
+            border-color: rgba(138, 43, 226, 0.25);
         }
 
         /* Why Section */
         .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
         .why-card {
-            background: var(--bg-card); /* #1A1A1A */
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            border-radius: 20px; padding: 40px; height: 100%;
+            border-radius: 16px; padding: 40px; height: 100%;
         }
-        .why-card.negative { background: var(--bg-card); border-color: #333; }
-        .why-card.positive { background: var(--bg-card); border-color: var(--primary); }
+        .why-card.negative { background: var(--bg-card); border-color: rgba(255, 100, 120, 0.2); }
+        .why-card.positive {
+            background: rgba(138, 43, 226, 0.04);
+            border-color: rgba(138, 43, 226, 0.35);
+            box-shadow: inset 0 0 40px rgba(138, 43, 226, 0.03);
+        }
         
         .why-list li { display: flex; align-items: start; gap: 16px; margin-bottom: 20px; color: var(--text-muted); }
         .why-icon { flex-shrink: 0; font-size: 1.25rem; }
@@ -506,14 +576,14 @@
 
         .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
         .vs-card {
-            background: var(--bg-card); /* #1A1A1A */
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 40px; border-radius: 24px; text-align: center; transition: 0.4s;
+            padding: 40px; border-radius: 16px; text-align: center; transition: 0.4s;
         }
-        .vs-card:hover { 
-            transform: translateY(-10px); 
-            background: #222; 
-            border-color: rgba(255,255,255,0.2);
+        .vs-card:hover {
+            transform: translateY(-8px);
+            background: #1a1a1a;
+            border-color: rgba(255,255,255,0.15);
         }
 
         /* Services */
@@ -521,25 +591,32 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;
         }
         .service-card {
-            background: var(--bg-card); /* #1A1A1A */
-            border: 1px solid var(--border-highlight); /* Verde #8a2be2 para todas */
-            border-radius: 20px; 
-            padding: 32px; 
-            transition: 0.3s;
+            background: var(--bg-card);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
             color: var(--text-main);
         }
         .service-card p {
             color: var(--text-muted);
         }
         .service-card:hover {
-            border-color: var(--primary); 
+            border-color: rgba(138, 43, 226, 0.5);
             transform: translateY(-5px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(138, 43, 226, 0.15);
         }
         .service-icon {
             width: 50px; height: 50px;
-            background: rgba(197, 212, 53, 0.1); /* RGBA of #8a2be2 */
+            background: rgba(138, 43, 226, 0.12);
+            border: 1px solid rgba(138, 43, 226, 0.2);
             border-radius: 12px; display: flex; align-items: center; justify-content: center;
             font-size: 1.5rem; margin-bottom: 24px; color: var(--primary);
+            transition: 0.3s;
+        }
+        .service-card:hover .service-icon {
+            background: rgba(138, 43, 226, 0.2);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
         }
 
         /* Portfolio */
@@ -547,13 +624,14 @@
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
         }
         .portfolio-item {
-            border-radius: 16px; overflow: hidden;
+            border-radius: 12px; overflow: hidden;
             border: 1px solid var(--border); background: var(--bg-card);
-            cursor: pointer; transition: 0.4s ease; position: relative;
+            cursor: none; transition: transform 0.4s cubic-bezier(0.23,1,0.32,1), border-color 0.3s ease, box-shadow 0.4s ease; position: relative;
         }
         .portfolio-item:hover {
-            transform: translateY(-8px); 
-            border-color: var(--primary);
+            transform: translateY(-8px);
+            border-color: rgba(138, 43, 226, 0.4);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(138,43,226,0.1);
         }
         .port-thumb-container {
             width: 100%; height: 350px; overflow: hidden; position: relative;
@@ -565,18 +643,26 @@
         .portfolio-item:hover .port-thumb-img { transform: scale(1.05); }
         
         .portfolio-overlay {
-            position: absolute; inset: 0; 
-            background: rgba(197, 212, 53, 0.9); /* RGBA of #8a2be2 */
+            position: absolute; inset: 0;
+            background: rgba(10, 0, 20, 0.78);
             display: flex; flex-direction: column; align-items: center; justify-content: center;
             opacity: 0; transition: 0.3s ease; backdrop-filter: blur(4px); gap: 10px;
+            border: 1px solid rgba(138, 43, 226, 0.3);
         }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
-        .portfolio-overlay span { font-weight: 700; color: #0C0C0C; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1px; }
-        .portfolio-overlay i { font-size: 2.5rem; color: #0C0C0C; }
+        .portfolio-overlay span { font-weight: 700; color: #ffffff; font-family: var(--font-display); text-transform: uppercase; letter-spacing: 2px; font-size: 0.85rem; }
+        .portfolio-overlay i { font-size: 2rem; color: var(--primary); }
 
-        .port-info { padding: 24px; background: #161616; border-top: 1px solid var(--border); }
-        .port-tag { font-size: 0.75rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 8px; display: block; }
-        .port-info h3 { font-size: 1.25rem; margin-bottom: 8px; color: white; white-space: normal; } 
+        .port-info { padding: 20px 24px; background: var(--bg-card); border-top: 1px solid var(--border); }
+        .port-tag {
+            font-size: 0.65rem; color: #c084fc;
+            background: rgba(138, 43, 226, 0.1);
+            border: 1px solid rgba(138, 43, 226, 0.2);
+            text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700;
+            margin-bottom: 10px; display: inline-block;
+            padding: 2px 10px; border-radius: 3px;
+        }
+        .port-info h3 { font-size: 1.15rem; margin-bottom: 6px; color: var(--text-main); white-space: normal; }
 
         /* Modal */
         .modal {
@@ -593,79 +679,159 @@
             border: 1px solid rgba(255,255,255,0.1); 
         }
         .modal-header {
-            padding: 20px; background: #0A101F; display: flex;
-            justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 18px 24px; background: #0a0a0a; display: flex;
+            justify-content: space-between; align-items: center;
+            border-bottom: 1px solid rgba(138, 43, 226, 0.15);
         }
-        .modal-title-box h3 { color: white; font-size: 1.2rem; }
-        .modal-title-box p { font-size: 0.9rem; color: var(--text-muted); }
-        .close-modal { color: #94a3b8; font-size: 28px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-        .close-modal:hover { color: white; }
+        .modal-title-box h3 { color: var(--text-main); font-size: 1.1rem; font-family: var(--font-display); }
+        .modal-title-box p { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
+        .close-modal {
+            color: var(--text-muted); font-size: 22px; cursor: pointer; transition: color 0.2s, transform 0.2s;
+            width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+            border-radius: 6px; border: 1px solid var(--border);
+        }
+        .close-modal:hover { color: var(--text-main); transform: rotate(90deg); border-color: rgba(255,255,255,0.15); }
         .modal-body { flex: 1; overflow-y: auto; background: var(--bg-dark); }
         .modal-full-img { width: 100%; height: auto; display: block; }
 
         /* Process */
-        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 60px; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 60px; }
         .step-card { text-align: center; position: relative; }
         .step-num {
-            font-size: 5rem; font-weight: 800;
+            font-size: 5.5rem; font-weight: 800;
             font-family: var(--font-display); margin-bottom: -30px; display: block; z-index: 0;
-            opacity: 1;
-            /* Degradê Transparente para Verde Oficial #8a2be2 */
-            background: linear-gradient(to bottom, rgba(197, 212, 53, 0), #8a2be2);
+            background: linear-gradient(to bottom, rgba(138, 43, 226, 0) 0%, rgba(138, 43, 226, 0.7) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            letter-spacing: -2px;
         }
         .step-content {
-            background: var(--bg-card); /* #1A1A1A */
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            padding: 24px; border-radius: 16px; position: relative; z-index: 1;
+            padding: 24px; border-radius: 12px; position: relative; z-index: 1;
+            transition: border-color 0.3s;
+        }
+        .step-card:hover .step-content {
+            border-color: rgba(138, 43, 226, 0.25);
         }
         .step-content h3 { color: #FFFFFF; }
         .step-content p { color: var(--text-muted); }
 
         /* FAQ */
         .faq-item {
-            background: var(--bg-card); /* #1A1A1A */
+            background: var(--bg-card);
             border: 1px solid var(--border);
-            margin-bottom: 16px; border-radius: 12px; overflow: hidden;
+            margin-bottom: 12px; border-radius: 10px; overflow: hidden;
+            transition: border-color 0.3s;
+        }
+        .faq-item:has(.faq-answer.active) {
+            border-color: rgba(138, 43, 226, 0.3);
         }
         .faq-question {
             padding: 20px 24px; cursor: pointer; display: flex;
             justify-content: space-between; align-items: center; font-weight: 600;
-            transition: 0.3s; color: var(--text-main);
+            transition: 0.3s; color: var(--text-main); gap: 16px;
         }
-        .faq-question:hover { background: #222; color: var(--primary); }
+        .faq-question:hover { color: #c084fc; }
         .faq-answer {
             padding: 0 24px; max-height: 0; overflow: hidden;
-            transition: all 0.3s ease; color: var(--text-muted);
+            transition: all 0.35s ease; color: var(--text-muted); line-height: 1.7;
         }
-        .faq-answer.active { padding: 0 24px 24px; max-height: 200px; }
+        .faq-answer.active { padding: 0 24px 24px; max-height: 300px; }
 
         /* Footer */
-        footer { background: #050505; padding: 80px 0 40px; border-top: 1px solid var(--border); }
+        footer { background: #050505; padding: 80px 0 40px; border-top: 1px solid rgba(138, 43, 226, 0.15); }
+        footer a[href^="#"] {
+            position: relative;
+            transition: color 0.25s ease;
+        }
+        footer a[href^="#"]::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0;
+            width: 0; height: 1px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        footer a[href^="#"]:hover { color: var(--text-main) !important; }
+        footer a[href^="#"]:hover::after { width: 100%; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-bottom: 60px; }
         .footer-logo { height: 68px; margin-bottom: 24px; opacity: 0.9; transition: 0.3s; }
         .footer-logo:hover { opacity: 1; }
 
-        /* Floating Button - Ajustado para Verde */
+        /* Floating Button */
         .whatsapp-float {
-            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-            background-color: var(--primary); /* #8a2be2 */
-            color: #0C0C0C; /* Ícone Preto */
-            border-radius: 50px;
-            text-align: center; font-size: 30px; z-index: 100;
+            position: fixed; bottom: 30px; right: 30px; width: 58px; height: 58px;
+            background-color: var(--primary);
+            color: #ffffff;
+            border-radius: 50%;
+            text-align: center; font-size: 28px; z-index: 100;
             display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.45);
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
         }
 
         .whatsapp-float:hover {
-            background-color: var(--primary-hover); /* #8a2be2 */
+            background-color: var(--primary-hover);
+            transform: scale(1.08);
+            box-shadow: 0 6px 30px rgba(138, 43, 226, 0.55);
         }
 
-        .fade-up { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.23, 1, 0.32, 1); }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* ─── Custom Cursor ────────────────────────────────────────── */
+        .cursor-dot,
+        .cursor-ring { display: none; }
+
+        @media (hover: hover) and (pointer: fine) {
+            html, a, button, [onclick] { cursor: none !important; }
+
+            .cursor-dot {
+                display: block;
+                position: fixed;
+                width: 5px; height: 5px;
+                background: var(--primary);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 99999;
+                transform: translate(-50%, -50%);
+                transition: opacity 0.2s ease, transform 0.1s ease;
+            }
+
+            .cursor-ring {
+                display: block;
+                position: fixed;
+                width: 26px; height: 26px;
+                border: 1.5px solid rgba(138, 43, 226, 0.45);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 99998;
+                transform: translate(-50%, -50%);
+                transition: width 0.3s ease, height 0.3s ease,
+                            border-color 0.3s ease, background 0.3s ease;
+            }
+
+            .cursor-ring.is-hovering {
+                width: 44px; height: 44px;
+                border-color: rgba(138, 43, 226, 0.65);
+                background: rgba(138, 43, 226, 0.05);
+            }
+
+            .cursor-dot.is-hovering {
+                transform: translate(-50%, -50%) scale(0);
+            }
+        }
+
+        /* ─── Header scroll state ───────────────────────────────────── */
+        header {
+            transition: border-bottom-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        header.is-scrolled {
+            border-bottom-color: rgba(138, 43, 226, 0.18) !important;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        }
 
         /* Helper for Mobile Breaks */
         .mobile-br { display: none; }
@@ -824,6 +990,11 @@
         <div class="hero-bg-effect"></div>
         <div class="container hero-grid" style="position: relative; z-index: 2;">
             <div class="hero-content fade-up">
+                <!-- Eyebrow label -->
+                <div style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                    <span style="display: inline-block; width: 28px; height: 1px; background: var(--primary); opacity: 0.7;"></span>
+                    <span style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #c084fc;">Agência Digital</span>
+                </div>
                 <!-- Título principal - Ajustado para max-width específico -->
                 <h1 class="hero-title-custom">
                     Venda Mais Com<br>
@@ -833,7 +1004,7 @@
                 <p class="hero-subtitle">Criamos sites, lojas virtuais e landing pages que geram autoridade, confiança e conversão para o seu negócio.</p>
                 
                 <div class="hero-actions">
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary">Quero Um Site Que Vende</a>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary">Quero Um Site Que Vende <i class="ri-arrow-right-line" style="margin-left: 6px;"></i></a>
                     <a href="#portfolio" class="btn btn-outline">Ver Projetos</a>
                 </div>
                 
@@ -845,8 +1016,8 @@
                         <div style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/44.jpg'); background-size: cover;"></div>
                         <div style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/85.jpg'); background-size: cover;"></div>
                     </div>
-                    <p style="font-size: 0.9rem; color: #C8C8C8; font-weight: 500; max-width: 280px; line-height: 1.3;">
-                        +3.500 clientes atendidos <span style="color: #FFFFFF;">⭐⭐⭐⭐⭐</span>
+                    <p style="font-size: 0.875rem; color: #9CA3AF; font-weight: 500; max-width: 280px; line-height: 1.4;">
+                        +3.500 clientes atendidos <span style="color: var(--text-main);">⭐⭐⭐⭐⭐</span>
                     </p>
                 </div>
             </div>
@@ -854,11 +1025,11 @@
             <div class="hero-card-container fade-up">
                 <div class="hero-card">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <span style="background: #FAFAFA; color: #8a2be2; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(197, 212, 53, 0.3);">PROJETO PREMIUM</span>
+                        <span style="background: rgba(138, 43, 226, 0.12); color: #c084fc; padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid rgba(138, 43, 226, 0.3);">PROJETO PREMIUM</span>
                         <div style="display: flex; gap: 6px;">
-                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 5px #ff5f56;"></div>
-                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #ffbd2e; box-shadow: 0 0 5px #ffbd2e;"></div>
-                            <div style="width: 10px; height: 10px; border-radius: 50%; background: #8a2be2; box-shadow: 0 0 5px #8a2be2;"></div>
+                            <div style="width: 9px; height: 9px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 4px rgba(255,95,86,0.6);"></div>
+                            <div style="width: 9px; height: 9px; border-radius: 50%; background: #ffbd2e; box-shadow: 0 0 4px rgba(255,189,46,0.6);"></div>
+                            <div style="width: 9px; height: 9px; border-radius: 50%; background: #8a2be2; box-shadow: 0 0 4px rgba(138,43,226,0.6);"></div>
                         </div>
                     </div>
                     <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: white;">Alta conversão</h3>
@@ -886,13 +1057,13 @@
     <section id="por-que" class="section-light" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Importância Digital</span>
+                <span class="section-tag">Importância Digital</span>
                 <!-- H2 Title Case -->
                 <h2 class="section-title titulo-fixo" style="max-width: 13em;">Seu Negócio Precisa De Um <span class="text-gradient">Site Profissional</span>?</h2>
                 <p>Sem um site bem feito, você perde autoridade, confiança e vendas todos os dias.</p>
             </div>
 
-            <div class="why-grid fade-up">
+            <div class="why-grid fade-up stagger-children">
                 <!-- Sem site -->
                 <div class="why-card negative">
                     <!-- H3 Sentence case -->
@@ -922,21 +1093,21 @@
     <section class="vs-section" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Comparativo</span>
+                <span class="section-tag">Comparativo</span>
                 <!-- Novo título Title Case - Ajustado com quebra de linha forçada -->
                 <h2 class="section-title titulo-fixo" style="max-width: 950px; color: #FFFFFF; font-weight: 600; text-shadow: none;">
                     Por Que <span class="text-gradient">Só O Instagram Não<br>É Suficiente</span> Para Vender?
                 </h2>
             </div>
 
-            <div class="vs-grid fade-up">
+            <div class="vs-grid fade-up stagger-children">
                 <div class="vs-card">
                     <i class="ri-instagram-line vs-icon-lg" style="color: #d62976; font-size: 3rem; margin-bottom: 24px;"></i>
                     <!-- H3 Sentence case -->
                     <h3>Só Instagram</h3>
                     <p style="margin-top: 16px;">Você depende do algoritmo, seu conteúdo some com o tempo e seu perfil é igual a milhares de outros.</p>
                 </div>
-                <div class="vs-card" style="border-color: var(--primary); background: rgba(197, 212, 53, 0.02);">
+                <div class="vs-card" style="border-color: var(--primary); background: rgba(138, 43, 226, 0.02);">
                     <div style="display: flex; justify-content: center; gap: 10px; align-items: center; margin-bottom: 24px;">
                         <i class="ri-layout-line" style="color: var(--primary); font-size: 3rem;"></i>
                         <span style="font-size: 2rem;">+</span>
@@ -954,12 +1125,12 @@
     <section id="servicos" class="section-light" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Nossas Soluções</span>
+                <span class="section-tag">Nossas Soluções</span>
                 <!-- Título -->
                 <h2 class="section-title titulo-fixo" style="max-width: 1000px;"><span class="text-gradient">O Que A LOGOS Faz</span> Pelo Seu Negócio</h2>
             </div>
 
-            <div class="services-grid fade-up">
+            <div class="services-grid fade-up stagger-children">
                 <div class="service-card">
                     <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
                     <!-- H3 Sentence case -->
@@ -983,7 +1154,7 @@
     </section>
 
     <!-- Velocidade -->
-    <section style="background: linear-gradient(135deg, #0C0C0C 0%, #111111 100%); color: white; padding: 100px 0; position: relative; overflow: hidden;">
+    <section style="background: linear-gradient(160deg, #080808 0%, #0d0a12 50%, #080808 100%); color: white; padding: 100px 0; position: relative; overflow: hidden;">
         <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: url('images/cubes.png'); opacity: 0.05;"></div>
         <div class="container" style="position: relative; z-index: 2;">
             <div class="section-header fade-up" style="margin-bottom: 40px;">
@@ -1016,12 +1187,28 @@
     <section class="section-light" style="padding: 80px 0; background: var(--bg-secondary);">
         <div class="container" style="text-align: center;">
             <div class="section-header fade-up" style="margin-bottom: 30px;">
-                <!-- H2 Title Case -->
                 <h2 class="section-title titulo-fixo">Quem É A <span class="text-gradient">LOGOS Company</span></h2>
             </div>
-            <p class="fade-up" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem; color: var(--text-muted);">
+            <p class="fade-up" style="max-width: 640px; margin: 0 auto 48px; font-size: 1.1rem; color: var(--text-muted); line-height: 1.75;">
                 Somos especialistas em criação de sites que vendem. Já entregamos mais de 3500 projetos para profissionais e empresas que precisam de autoridade, velocidade e conversão.
             </p>
+            <!-- Stats row -->
+            <div class="fade-up" style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">3.500<span style="color: var(--primary);">+</span></div>
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">Projetos</div>
+                </div>
+                <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
+                <div style="text-align: center;">
+                    <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">7<span style="color: var(--primary);">dias</span></div>
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">Entrega</div>
+                </div>
+                <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
+                <div style="text-align: center;">
+                    <div style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">100<span style="color: var(--primary);">%</span></div>
+                    <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">Responsivo</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1029,12 +1216,12 @@
     <section id="processo" class="section-light" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Passo A Passo</span>
+                <span class="section-tag">Passo A Passo</span>
                 <!-- H2 Title Case -->
                 <h2 class="section-title titulo-fixo">Como Funciona</h2>
             </div>
 
-            <div class="process-steps fade-up">
+            <div class="process-steps fade-up stagger-children">
                 <div class="step-card">
                     <span class="step-num">01</span>
                     <div class="step-content">
@@ -1075,13 +1262,13 @@
     <section id="portfolio" style="padding: 100px 0;">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Resultados Reais</span>
+                <span class="section-tag">Resultados Reais</span>
                 <!-- H2 Title Case -->
                 <h2 class="section-title titulo-fixo">Transformando <span class="text-gradient">Presenças Online</span></h2>
                 <p>Clique nos projetos para ver a experiência completa.</p>
             </div>
 
-            <div class="portfolio-grid fade-up">
+            <div class="portfolio-grid fade-up stagger-children">
                 <!-- Gustavo Advogado -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png', 'Gustavo Advogado', 'Site Institucional Jurídico', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png')">
                     <div class="port-thumb-container">
@@ -1143,21 +1330,20 @@
     </section>
 
     <!-- Planos -->
-    <section id="planos" style="padding: 100px 0; background: var(--bg-dark);">
+    <section id="planos" style="padding: 100px 0 110px; background: var(--bg-dark);">
         <div class="container">
             <div class="section-header fade-up">
-                <span class="section-tag" style="color: #FFFFFF !important;">Investimento</span>
+                <span class="section-tag">Investimento</span>
                 <!-- H2 Title Case - Mobile Break Added -->
                 <h2 class="section-title titulo-fixo">Escolha O <br class="mobile-br"><span class="text-gradient">Plano Ideal</span></h2>
             </div>
 
-            <div class="portfolio-grid fade-up">
+            <div class="portfolio-grid fade-up stagger-children">
                 <!-- Plano 1 -->
-                <div class="service-card" style="text-align: center; border-color: var(--primary);">
-                    <!-- H3 Sentence case -->
+                <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
                     <h3 style="color: #FFFFFF; margin-bottom: 10px;">Site Institucional</h3>
-                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 397</strong><br>Para empresas que precisam de presença digital sólida e profissional.</p>
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 497</strong><br>Para empresas que precisam de presença digital sólida e profissional.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-outline" style="width: 100%;">Quero este plano</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Até 5 páginas</li>
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Design premium</li>
@@ -1169,10 +1355,11 @@
                 </div>
 
                 <!-- Plano 2 (Destaque) -->
-                <div class="service-card" style="text-align: center; border-color: var(--primary);">
-                    <!-- H3 Sentence case -->
-                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Landing Page</h3>
-                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 197</strong><br>Perfeita para vendas rápidas, captar leads e campanhas de tráfego pago.</p>
+                <div class="service-card" style="text-align: center; border-color: var(--primary); background: rgba(138, 43, 226, 0.06); box-shadow: 0 0 50px rgba(138, 43, 226, 0.1), inset 0 1px 0 rgba(138, 43, 226, 0.2); position: relative;">
+                    <!-- Badge featured -->
+                    <div style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 16px; border-radius: 4px; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; white-space: nowrap; font-family: var(--font-body);">MAIS POPULAR</div>
+                    <h3 style="color: #FFFFFF; margin-bottom: 10px; margin-top: 8px;">Landing Page</h3>
+                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 297</strong><br>Perfeita para vendas rápidas, captar leads e campanhas de tráfego pago.</p>
                     <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Página única de alta conversão</li>
@@ -1185,11 +1372,10 @@
                 </div>
 
                 <!-- Plano 3 -->
-                <div class="service-card" style="text-align: center; border-color: var(--primary);">
-                    <!-- H3 Sentence case -->
+                <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
                     <h3 style="color: #FFFFFF; margin-bottom: 10px;">Loja Virtual</h3>
                     <p style="margin-bottom: 30px;"><strong>a partir de R$ 749</strong><br>Para quem quer vender produtos online com uma estrutura completa.</p>
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-outline" style="width: 100%;">Quero este plano</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> E-commerce profissional</li>
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line" style="color: var(--primary);"></i> Painel administrativo intuitivo</li>
@@ -1237,7 +1423,7 @@
     </section>
 
     <!-- CTA Final -->
-    <section id="contato" style="background: var(--bg-dark); text-align: center; padding: 120px 0;">
+    <section id="contato" style="background: radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 65%), var(--bg-dark); text-align: center; padding: 120px 0; position: relative; overflow: hidden;">
         <div class="container fade-up">
             <!-- H2 Title Case -->
             <h2 class="section-title titulo-fixo" style="max-width: 16em;">Pronto Para Ter Um Site Que <span class="text-gradient">Vende De Verdade?</span></h2>
@@ -1245,7 +1431,7 @@
             <!-- Urgência - Mobile Break Added -->
             <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted);">Comece Hoje.<br class="mobile-br"> Seu Site Pronto Em Até 7 Dias.</p>
             
-            <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="font-size: 1.2rem; padding: 20px 50px;">
+            <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS" class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 44px;">
                 <i class="ri-whatsapp-line" style="margin-right: 10px;"></i> Falar Agora Com a LOGOS
             </a>
             <p style="margin-top: 20px; font-size: 0.9rem; color: #C8C8C8;">Sites, lojas virtuais e landing pages.</p>
@@ -1297,6 +1483,10 @@
         </div>
     </div>
 
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
     <!-- Scripts -->
     <script>
         const observerOptions = { threshold: 0.1 };
@@ -1304,6 +1494,16 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    // Stagger direct children for grid containers
+                    if (entry.target.classList.contains('stagger-children')) {
+                        Array.from(entry.target.children).forEach((child, i) => {
+                            setTimeout(() => {
+                                child.style.opacity = '1';
+                                child.style.transform = 'translateY(0)';
+                            }, i * 80 + 80);
+                        });
+                    }
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
@@ -1331,6 +1531,50 @@
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => { navLinks.classList.remove('active'); });
         });
+
+        // ── Custom Cursor ──────────────────────────────────────────
+        (function() {
+            const dot  = document.getElementById('cursorDot');
+            const ring = document.getElementById('cursorRing');
+            if (!dot || !ring) return;
+
+            let mx = -100, my = -100, rx = -100, ry = -100;
+            let hover = false;
+
+            document.addEventListener('mousemove', e => {
+                mx = e.clientX; my = e.clientY;
+                dot.style.left = mx + 'px';
+                dot.style.top  = my + 'px';
+            }, { passive: true });
+
+            (function tick() {
+                rx += (mx - rx) * 0.13;
+                ry += (my - ry) * 0.13;
+                ring.style.left = rx + 'px';
+                ring.style.top  = ry + 'px';
+                requestAnimationFrame(tick);
+            })();
+
+            const targets = document.querySelectorAll(
+                'a, button, .service-card, .portfolio-item, .faq-question, .vs-card, .why-card, .step-card, .btn'
+            );
+            targets.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    ring.classList.add('is-hovering');
+                    dot.classList.add('is-hovering');
+                });
+                el.addEventListener('mouseleave', () => {
+                    ring.classList.remove('is-hovering');
+                    dot.classList.remove('is-hovering');
+                });
+            });
+        })();
+
+        // ── Header scroll glow ─────────────────────────────────────
+        const siteHeader = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
+        }, { passive: true });
 
         const modal = document.getElementById('projectModal');
         const modalImg = document.getElementById('modalImg');
