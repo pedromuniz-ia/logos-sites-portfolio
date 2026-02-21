@@ -13,12 +13,20 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" href="images/logo-favicon.JPG" type="image/png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="apple-touch-icon" href="images/favicon-180.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preload"
+        as="style"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
     
     <!-- Remix Icons -->
     <link href="css/remixicon.css" rel="stylesheet">
@@ -644,8 +652,14 @@
         .port-thumb-container {
             width: 100%; height: 350px; overflow: hidden; position: relative;
         }
+        .port-thumb-container picture {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
         .port-thumb-img {
             width: 100%; height: 100%; object-fit: cover; object-position: top;
+            display: block;
             transition: transform 0.6s ease;
         }
         .portfolio-item:hover .port-thumb-img { transform: scale(1.05); }
@@ -765,7 +779,7 @@
         footer a[href^="#"]:hover { color: var(--text-main) !important; }
         footer a[href^="#"]:hover::after { width: 100%; }
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-bottom: 60px; }
-        .footer-logo { height: 68px; margin-bottom: 24px; opacity: 0.9; transition: 0.3s; }
+        .footer-logo { width: auto; height: 68px; margin-bottom: 24px; opacity: 0.9; transition: 0.3s; }
         .footer-logo:hover { opacity: 1; }
 
         /* Floating Button */
@@ -844,8 +858,42 @@
         /* Helper for Mobile Breaks */
         .mobile-br { display: none; }
 
+        /* Motion/Render Cost Controls */
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            body::after,
+            .hero-bg-effect,
+            .text-gradient {
+                animation: none !important;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
+            body::after { display: none; }
+            .hero-bg-effect {
+                animation: none;
+                transform: none;
+                opacity: 0.25;
+            }
+            .hero::before,
+            .hero::after {
+                animation: none;
+                filter: blur(90px);
+                opacity: 0.06;
+            }
+            header,
+            .hero-card,
+            .portfolio-overlay,
+            .modal {
+                backdrop-filter: none !important;
+                -webkit-backdrop-filter: none !important;
+            }
             .hero-content { margin-top: 100px; order: 1; }
             .hero-grid { grid-template-columns: 1fr; text-align: center; }
             .hero-card-container { order: 2; margin-top: 15px; margin-bottom: 40px; display: flex; justify-content: center; }
@@ -948,9 +996,7 @@
                 margin-left: 0;
             }
         }
-    </style>
-<link rel="stylesheet" href="/index.css">
-  <script type="module" crossorigin="" src="js/index-B5Qt9EMX.js"></script>
+</style>
 </head>
 <body>
 
@@ -963,7 +1009,7 @@
     <header>
         <div class="container nav-container">
             <a href="#">
-                <img src="images/LOGO-LOGOS.png" alt="LOGOS Company" class="logo-img">
+                <img src="images/LOGO-LOGOS.webp" alt="LOGOS Company" class="logo-img" width="1080" height="1080" decoding="async" fetchpriority="high">
             </a>
             
             <nav class="nav-links">
@@ -1280,7 +1326,10 @@
                 <!-- Gustavo Advogado -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png', 'Gustavo Advogado', 'Site Institucional Jurídico', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Gustavo+advogado.png')">
                     <div class="port-thumb-container">
-                        <img src="images/Gustavo%2Badvogado.png" class="port-thumb-img" alt="Gustavo Advogado">
+                        <picture>
+                            <source type="image/webp" srcset="images/Gustavo%2Badvogado-480.webp 480w, images/Gustavo%2Badvogado-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/Gustavo%2Badvogado.png" class="port-thumb-img" alt="Gustavo Advogado" width="1920" height="5832" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Advocacia</span><h3>Gustavo Advogado</h3><p>Credibilidade e autoridade jurídica.</p></div>
@@ -1288,7 +1337,10 @@
                 <!-- Lorena -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Lorena.png', 'Dra. Lorena', 'Clínica de Estética Avançada', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Lorena.png')">
                     <div class="port-thumb-container">
-                        <img src="images/Lorena.png" class="port-thumb-img" alt="Dra. Lorena">
+                        <picture>
+                            <source type="image/webp" srcset="images/Lorena-480.webp 480w, images/Lorena-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/Lorena.png" class="port-thumb-img" alt="Dra. Lorena" width="1920" height="6417" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Estética</span><h3>Dra. Lorena</h3><p>Design elegante focado em agendamentos.</p></div>
@@ -1296,7 +1348,10 @@
                 <!-- Zap Lucro -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Zap+Lucro.png', 'Zap Lucro', 'Landing Page para Software/SaaS', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/Zap+Lucro.png')">
                     <div class="port-thumb-container">
-                        <img src="images/Zap%2BLucro.png" class="port-thumb-img" alt="Zap Lucro">
+                        <picture>
+                            <source type="image/webp" srcset="images/Zap%2BLucro-480.webp 480w, images/Zap%2BLucro-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/Zap%2BLucro.png" class="port-thumb-img" alt="Zap Lucro" width="1920" height="8385" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">SaaS</span><h3>Zap Lucro</h3><p>Alta conversão para ferramentas digitais.</p></div>
@@ -1304,7 +1359,10 @@
                 <!-- Desafios May -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/desafios+may.png', 'Desafios May', 'Página de Vendas de Infoproduto', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/desafios+may.png')">
                     <div class="port-thumb-container">
-                        <img src="images/desafios%2Bmay.png" class="port-thumb-img" alt="Desafios May">
+                        <picture>
+                            <source type="image/webp" srcset="images/desafios%2Bmay-480.webp 480w, images/desafios%2Bmay-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/desafios%2Bmay.png" class="port-thumb-img" alt="Desafios May" width="1920" height="8381" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Infoproduto</span><h3>Desafios May</h3><p>Landing page vibrante para cursos.</p></div>
@@ -1312,7 +1370,10 @@
                 <!-- Moises Mota -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/moises+mota+advogado.png', 'Moises Mota', 'Advocacia Trabalhista', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/moises+mota+advogado.png')">
                     <div class="port-thumb-container">
-                        <img src="images/moises%2Bmota%2Badvogado.png" class="port-thumb-img" alt="Moises Mota">
+                        <picture>
+                            <source type="image/webp" srcset="images/moises%2Bmota%2Badvogado-480.webp 480w, images/moises%2Bmota%2Badvogado-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/moises%2Bmota%2Badvogado.png" class="port-thumb-img" alt="Moises Mota" width="1920" height="5542" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Institucional</span><h3>Moises Mota</h3><p>Sobriedade e confiança.</p></div>
@@ -1320,7 +1381,10 @@
                 <!-- Limpcred -->
                 <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/limpcred.png', 'Limpcred', 'Site Institucional Financeiro', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/limpcred.png')">
                     <div class="port-thumb-container">
-                        <img src="images/limpcred.png" class="port-thumb-img" alt="Limpcred">
+                        <picture>
+                            <source type="image/webp" srcset="images/limpcred-480.webp 480w, images/limpcred-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/limpcred.png" class="port-thumb-img" alt="Limpcred" width="1920" height="9737" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Financeiro</span><h3>Limpcred</h3><p>Site corporativo.</p></div>
@@ -1328,7 +1392,10 @@
                 <!-- Ketlyn -->
                  <div class="portfolio-item" onclick="openProject('https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/ketlyn.png', 'Ketlyn Beauty', 'Portfólio de Beleza', 'https://f005.backblazeb2.com/file/zaplucro/evvocompany/portfolio/ketlyn.png')">
                     <div class="port-thumb-container">
-                        <img src="images/ketlyn.png" class="port-thumb-img" alt="Ketlyn Beauty">
+                        <picture>
+                            <source type="image/webp" srcset="images/ketlyn-480.webp 480w, images/ketlyn-800.webp 800w" sizes="(max-width: 768px) 92vw, (max-width: 1200px) 46vw, 31vw">
+                            <img src="images/ketlyn.png" class="port-thumb-img" alt="Ketlyn Beauty" width="1920" height="8444" loading="lazy" decoding="async">
+                        </picture>
                         <div class="portfolio-overlay"><i class="ri-eye-line"></i><span>Ver Projeto Completo</span></div>
                     </div>
                     <div class="port-info"><span class="port-tag">Beleza</span><h3>Ketlyn Beauty</h3><p>Personal branding para estética.</p></div>
@@ -1451,7 +1518,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="images/LOGO-LOGOS.png" alt="LOGOS Company" class="footer-logo">
+                    <img src="images/LOGO-LOGOS.webp" alt="LOGOS Company" class="footer-logo" loading="lazy" decoding="async">
                     <p style="max-width: 400px; color: var(--text-muted);">A LOGOS Company cria soluções digitais focadas em resultado. Transformamos cliques em clientes com design estratégico.</p>
                 </div>
                 <div>
@@ -1483,10 +1550,10 @@
                     <h3 id="modalTitle">Nome do projeto</h3>
                     <p id="modalDesc">Descrição do projeto</p>
                 </div>
-                <span class="close-modal" onclick="closeModal()">�</span>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
             </div>
             <div class="modal-body">
-                <img id="modalImg" src="" alt="Projeto Completo" class="modal-full-img">
+                <img id="modalImg" src="" alt="Projeto Completo" class="modal-full-img" loading="lazy" decoding="async">
             </div>
         </div>
     </div>
@@ -1497,26 +1564,38 @@
 
     <!-- Scripts -->
     <script>
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    // Stagger direct children for grid containers
-                    if (entry.target.classList.contains('stagger-children')) {
-                        Array.from(entry.target.children).forEach((child, i) => {
-                            setTimeout(() => {
-                                child.style.opacity = '1';
-                                child.style.transform = 'translateY(0)';
-                            }, i * 80 + 80);
-                        });
-                    }
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        if (prefersReducedMotion) {
+            document.querySelectorAll('.fade-up').forEach(el => {
+                el.classList.add('visible');
+            });
+            document.querySelectorAll('.stagger-children > *').forEach(child => {
+                child.style.opacity = '1';
+                child.style.transform = 'translateY(0)';
+            });
+        } else {
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Stagger direct children for grid containers
+                        if (entry.target.classList.contains('stagger-children')) {
+                            Array.from(entry.target.children).forEach((child, i) => {
+                                setTimeout(() => {
+                                    child.style.opacity = '1';
+                                    child.style.transform = 'translateY(0)';
+                                }, i * 80 + 80);
+                            });
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        }
 
         document.querySelectorAll('.faq-question').forEach(item => {
             item.addEventListener('click', () => {
@@ -1535,19 +1614,25 @@
 
         const mobileBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-        mobileBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => { navLinks.classList.remove('active'); });
-        });
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => { navLinks.classList.remove('active'); });
+            });
+        }
 
         // ── Custom Cursor ──────────────────────────────────────────
         (function() {
+            const canUseCustomCursor =
+                window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
+                !prefersReducedMotion;
+            if (!canUseCustomCursor) return;
+
             const dot  = document.getElementById('cursorDot');
             const ring = document.getElementById('cursorRing');
             if (!dot || !ring) return;
 
             let mx = -100, my = -100, rx = -100, ry = -100;
-            let hover = false;
 
             document.addEventListener('mousemove', e => {
                 mx = e.clientX; my = e.clientY;
@@ -1580,9 +1665,11 @@
 
         // ── Header scroll glow ─────────────────────────────────────
         const siteHeader = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
-        }, { passive: true });
+        if (siteHeader) {
+            window.addEventListener('scroll', () => {
+                siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
+            }, { passive: true });
+        }
 
         const modal = document.getElementById('projectModal');
         const modalImg = document.getElementById('modalImg');
