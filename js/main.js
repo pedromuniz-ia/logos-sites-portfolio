@@ -1,0 +1,172 @@
+(function () {
+    'use strict';
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canUseFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    function initFadeAnimations() {
+        const fadeElements = document.querySelectorAll('.fade-up');
+        const staggerChildren = document.querySelectorAll('.stagger-children > *');
+
+        if (prefersReducedMotion) {
+            fadeElements.forEach((el) => el.classList.add('visible'));
+            staggerChildren.forEach((child) => {
+                child.style.opacity = '1';
+                child.style.transform = 'translateY(0)';
+            });
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add('visible');
+
+                if (entry.target.classList.contains('stagger-children')) {
+                    Array.from(entry.target.children).forEach((child, i) => {
+                        setTimeout(() => {
+                            child.style.opacity = '1';
+                            child.style.transform = 'translateY(0)';
+                        }, i * 80 + 80);
+                    });
+                }
+
+                observer.unobserve(entry.target);
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach((el) => observer.observe(el));
+    }
+
+    function initFaqAccordion() {
+        document.querySelectorAll('.faq-question').forEach((question) => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                if (!answer || !icon) return;
+
+                answer.classList.toggle('active');
+                const isActive = answer.classList.contains('active');
+                icon.classList.toggle('ri-add-line', !isActive);
+                icon.classList.toggle('ri-subtract-line', isActive);
+            });
+        });
+    }
+
+    function initMobileMenu() {
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        if (!mobileBtn || !navLinks) return;
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    function initCustomCursor() {
+        if (!canUseFinePointer || prefersReducedMotion) return;
+
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        if (!dot || !ring) return;
+
+        let mouseX = -100;
+        let mouseY = -100;
+        let ringX = -100;
+        let ringY = -100;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.left = `${mouseX}px`;
+            dot.style.top = `${mouseY}px`;
+        }, { passive: true });
+
+        function animateCursorRing() {
+            ringX += (mouseX - ringX) * 0.13;
+            ringY += (mouseY - ringY) * 0.13;
+            ring.style.left = `${ringX}px`;
+            ring.style.top = `${ringY}px`;
+            requestAnimationFrame(animateCursorRing);
+        }
+        animateCursorRing();
+
+        const hoverTargets = document.querySelectorAll(
+            'a, button, .service-card, .portfolio-item, .faq-question, .vs-card, .why-card, .step-card, .btn',
+        );
+
+        hoverTargets.forEach((el) => {
+            el.addEventListener('mouseenter', () => {
+                ring.classList.add('is-hovering');
+                dot.classList.add('is-hovering');
+            });
+            el.addEventListener('mouseleave', () => {
+                ring.classList.remove('is-hovering');
+                dot.classList.remove('is-hovering');
+            });
+        });
+    }
+
+    function initHeaderScrollState() {
+        const siteHeader = document.querySelector('header');
+        if (!siteHeader) return;
+
+        window.addEventListener('scroll', () => {
+            siteHeader.classList.toggle('is-scrolled', window.scrollY > 20);
+        }, { passive: true });
+    }
+
+    function initProjectModal() {
+        const modal = document.getElementById('projectModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+
+        function openProject(_thumbUrl, title, desc, fullUrl) {
+            if (!modal || !modalImg || !modalTitle || !modalDesc) return;
+
+            modal.classList.add('show');
+            modalImg.src = fullUrl;
+            modalTitle.innerText = title;
+            modalDesc.innerText = desc;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modal || !modalImg) return;
+
+            modal.classList.remove('show');
+            document.body.style.overflow = 'auto';
+            setTimeout(() => {
+                modalImg.src = '';
+            }, 300);
+        }
+
+        window.openProject = openProject;
+        window.closeModal = closeModal;
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+    }
+
+    function init() {
+        initFadeAnimations();
+        initFaqAccordion();
+        initMobileMenu();
+        initCustomCursor();
+        initHeaderScrollState();
+        initProjectModal();
+    }
+
+    init();
+})();
