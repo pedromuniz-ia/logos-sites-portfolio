@@ -1532,3 +1532,18 @@ header.is-scrolled {
         margin-left: 0;
     }
 }
+
+/* ─── Mobile fixes ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+    .top-bar {
+        display: none;
+    }
+
+    header {
+        top: 0;
+    }
+
+    .hero {
+        padding-top: 90px;
+    }
+}
