@@ -1313,6 +1313,95 @@ footer a[href^="#"]:hover::after {
 }
 
 
+/* ─── About Section ────────────────────────────────────────── */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.about-photo-wrapper {
+    position: relative;
+}
+
+.about-photo-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, var(--primary), transparent 60%);
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.about-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    display: block;
+    object-fit: cover;
+}
+
+.about-text .section-tag {
+    margin-bottom: 12px;
+}
+
+.about-text .section-title {
+    margin-bottom: 24px;
+}
+
+.about-stats {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.about-stat-number {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-main);
+    letter-spacing: -1.5px;
+    display: block;
+}
+
+.about-stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 2px;
+    display: block;
+}
+
+.about-stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border);
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .about-photo-wrapper {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .about-text .section-title {
+        text-align: center !important;
+    }
+
+    .about-stats {
+        justify-content: center;
+    }
+}
+
 /* ─── Header scroll state ───────────────────────────────────── */
 header.is-scrolled {
     background: rgba(12, 12, 12, 0.85);

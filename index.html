@@ -391,44 +391,54 @@
         </div>
     </section>
 
-    <!-- Nova Seção: Quem é a LOGOS Company -->
-    <section class="section-light" style="padding: 80px 0; background: var(--bg-secondary);">
-        <div class="container" style="text-align: center;">
-            <div class="section-header fade-up" style="margin-bottom: 30px;">
-                <h2 class="section-title titulo-fixo">Quem É A <span class="text-gradient">LOGOS Company</span></h2>
-            </div>
-            <p class="fade-up"
-                style="max-width: 640px; margin: 0 auto 48px; font-size: 1.1rem; color: var(--text-muted); line-height: 1.75;">
-                Somos especialistas em criação de sites que vendem. Já entregamos mais de 35 projetos para profissionais
-                e empresas que precisam de autoridade, velocidade e conversão.
-            </p>
-            <!-- Stats row -->
-            <div class="fade-up" style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
-                <div style="text-align: center;">
-                    <div
-                        style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">
-                        35<span style="color: var(--primary);">+</span></div>
-                    <div
-                        style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">
-                        Projetos</div>
+    <!-- Seção: Quem está por trás da LOGOS -->
+    <section id="sobre" style="padding: 100px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div class="about-grid fade-up">
+                <!-- Foto com art direction responsivo -->
+                <div class="about-photo-wrapper">
+                    <picture>
+                        <source media="(max-width: 767px)"
+                            srcset="https://f005.backblazeb2.com/file/landing-pages/pedro-fundador-mobile.webp"
+                            type="image/webp">
+                        <source media="(min-width: 768px)"
+                            srcset="https://f005.backblazeb2.com/file/landing-pages/pedro-fundador-desktop.webp"
+                            type="image/webp">
+                        <img src="https://f005.backblazeb2.com/file/landing-pages/pedro-fundador-desktop.webp"
+                            alt="Pedro Muniz - Fundador da LOGOS Company" class="about-photo" loading="lazy"
+                            decoding="async" width="800" height="446">
+                    </picture>
                 </div>
-                <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
-                <div style="text-align: center;">
-                    <div
-                        style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">
-                        7<span style="color: var(--primary);">dias</span></div>
-                    <div
-                        style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">
-                        Entrega</div>
-                </div>
-                <div style="width: 1px; background: var(--border); align-self: stretch;"></div>
-                <div style="text-align: center;">
-                    <div
-                        style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">
-                        100<span style="color: var(--primary);">%</span></div>
-                    <div
-                        style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); margin-top: 4px;">
-                        Responsivo</div>
+                <!-- Texto -->
+                <div class="about-text">
+                    <span class="section-tag">Quem Está Por Trás</span>
+                    <h2 class="section-title titulo-fixo" style="text-align: left;">Pedro Muniz, <span
+                            class="text-gradient">Fundador</span></h2>
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; margin-bottom: 24px;">
+                        Sou desenvolvedor e designer especializado em criar sites que realmente vendem. Cada projeto que
+                        entrego é pensado para gerar autoridade, confiança e conversão para o seu negócio.
+                    </p>
+                    <p style="color: var(--text-muted); line-height: 1.8; font-size: 1.05rem; margin-bottom: 40px;">
+                        Já são mais de 35 projetos entregues para profissionais e empresas de diversos segmentos.
+                        Na LOGOS, cada detalhe importa.
+                    </p>
+                    <!-- Stats -->
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <span class="about-stat-number">35<span style="color: var(--primary);">+</span></span>
+                            <span class="about-stat-label">Projetos</span>
+                        </div>
+                        <div class="about-stat-divider"></div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">7<span style="color: var(--primary);"> dias</span></span>
+                            <span class="about-stat-label">Entrega</span>
+                        </div>
+                        <div class="about-stat-divider"></div>
+                        <div class="about-stat">
+                            <span class="about-stat-number">100<span style="color: var(--primary);">%</span></span>
+                            <span class="about-stat-label">Responsivo</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
