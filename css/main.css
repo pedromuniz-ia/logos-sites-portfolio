@@ -390,8 +390,9 @@ ul {
 /* Header Specific Button (Desktop Only) */
 .header-cta {
     display: none;
-    padding: 10px 24px !important;
-    font-size: 1rem !important;
+    padding: 8px 20px !important;
+    font-size: 0.875rem !important;
+    border-radius: 100px !important;
     /* Slightly smaller for header */
     border-radius: 8px;
 }
@@ -526,13 +527,20 @@ header {
     position: fixed;
     top: 30px;
     /* Offset by top bar height */
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 48px);
+    max-width: 1280px;
     z-index: 1000;
-    background: rgba(12, 12, 12, 0.85);
-    /* #0C0C0C com transparência */
+    background: rgba(12, 12, 12, 0.6);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    height: 90px;
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    height: 64px;
+    margin-top: 12px;
+    padding: 0 8px;
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Container principal do Header */
@@ -554,7 +562,7 @@ header {
 }
 
 .logo-img {
-    height: 188px;
+    height: 120px;
     width: auto;
     display: block;
 }
@@ -1306,13 +1314,10 @@ footer a[href^="#"]:hover::after {
 
 
 /* ─── Header scroll state ───────────────────────────────────── */
-header {
-    transition: border-bottom-color 0.4s ease, box-shadow 0.4s ease;
-}
-
 header.is-scrolled {
-    border-bottom-color: rgba(138, 43, 226, 0.18) !important;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    background: rgba(12, 12, 12, 0.85);
+    border-color: rgba(138, 43, 226, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 /* Helper for Mobile Breaks */
@@ -1416,19 +1421,22 @@ header.is-scrolled {
     /* RESET Mobile Menu Behavior */
     .nav-links {
         display: none;
-        position: absolute;
-        /* Revert to absolute for dropdown functionality */
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background: rgba(12, 12, 12, 0.98);
+        position: fixed;
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 48px);
+        max-width: 1280px;
+        background: rgba(12, 12, 12, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
         flex-direction: column;
-        padding: 40px;
-        border-bottom: 1px solid var(--border);
-        transform: none;
+        padding: 32px;
         margin: 0;
-        /* Reset desktop margin */
-        gap: 32px;
+        gap: 28px;
+        z-index: 999;
     }
 
     .nav-links.active {
@@ -1437,16 +1445,13 @@ header.is-scrolled {
 
     /* Reset sibling push behavior for mobile */
     .nav-container {
-        justify-content: flex-end;
+        justify-content: space-between;
         position: relative;
     }
 
     .nav-container>a:first-child {
-        flex: initial;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        justify-content: center;
+        flex: 1;
+        justify-content: flex-start;
     }
 
     .nav-container>div:last-child {
@@ -1541,9 +1546,17 @@ header.is-scrolled {
 
     header {
         top: 0;
+        margin-top: 8px;
+        width: calc(100% - 32px);
+        height: 56px;
+        padding: 0 4px;
     }
 
     .hero {
         padding-top: 90px;
+    }
+
+    .logo-img {
+        height: 100px;
     }
 }
