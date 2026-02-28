@@ -2,7 +2,6 @@
     'use strict';
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const canUseFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     function initFadeAnimations() {
         const fadeElements = document.querySelectorAll('.fade-up');
@@ -70,49 +69,6 @@
         });
     }
 
-    function initCustomCursor() {
-        if (!canUseFinePointer || prefersReducedMotion) return;
-
-        const dot = document.getElementById('cursorDot');
-        const ring = document.getElementById('cursorRing');
-        if (!dot || !ring) return;
-
-        let mouseX = -100;
-        let mouseY = -100;
-        let ringX = -100;
-        let ringY = -100;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            dot.style.left = `${mouseX}px`;
-            dot.style.top = `${mouseY}px`;
-        }, { passive: true });
-
-        function animateCursorRing() {
-            ringX += (mouseX - ringX) * 0.13;
-            ringY += (mouseY - ringY) * 0.13;
-            ring.style.left = `${ringX}px`;
-            ring.style.top = `${ringY}px`;
-            requestAnimationFrame(animateCursorRing);
-        }
-        animateCursorRing();
-
-        const hoverTargets = document.querySelectorAll(
-            'a, button, .service-card, .portfolio-item, .faq-question, .vs-card, .why-card, .step-card, .btn',
-        );
-
-        hoverTargets.forEach((el) => {
-            el.addEventListener('mouseenter', () => {
-                ring.classList.add('is-hovering');
-                dot.classList.add('is-hovering');
-            });
-            el.addEventListener('mouseleave', () => {
-                ring.classList.remove('is-hovering');
-                dot.classList.remove('is-hovering');
-            });
-        });
-    }
 
     function initHeaderScrollState() {
         const siteHeader = document.querySelector('header');
@@ -163,7 +119,6 @@
         initFadeAnimations();
         initFaqAccordion();
         initMobileMenu();
-        initCustomCursor();
         initHeaderScrollState();
         initProjectModal();
     }

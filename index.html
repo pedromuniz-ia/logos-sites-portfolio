@@ -96,7 +96,7 @@
     </div>
 
     <!-- Header -->
-    <header>
+    <header class="glass-panel reflective-border" style="border-top: none; border-left: none; border-right: none;">
         <div class="container nav-container">
             <a href="#">
                 <img src="https://f005.backblazeb2.com/file/landing-pages/LOGO-LOGOS.webp" alt="LOGOS Company"
@@ -121,7 +121,7 @@
 
             <div style="display: flex; gap: 15px; align-items: center;">
                 <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
-                    class="btn btn-primary header-cta">
+                    class="btn btn-primary header-cta btn-shimmer reflective-border">
                     <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
                 </a>
                 <div class="mobile-menu-btn">
@@ -133,17 +133,25 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
+        <div class="mesh-gradient-bg">
+            <div class="mesh-circle"
+                style="background: var(--primary); top: -10%; right: 5%; width: 600px; height: 600px;"></div>
+            <div class="mesh-circle"
+                style="background: #b06be8; bottom: 10%; left: 5%; width: 500px; height: 500px; animation-delay: -5s;">
+            </div>
+        </div>
         <div class="hero-spotlight"></div>
         <div class="hero-bg-effect"></div>
         <div class="container hero-grid" style="position: relative; z-index: 2;">
             <div class="hero-content fade-up">
                 <!-- Eyebrow label -->
-                <div style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+                <div style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;"
+                    class="glass-panel reflective-border">
+                    <span style="display: inline-block; width: 0; height: 0; padding: 0 10px;"></span>
                     <span
-                        style="display: inline-block; width: 28px; height: 1px; background: var(--primary); opacity: 0.7;"></span>
-                    <span
-                        style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #c084fc;">Agência
+                        style="font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #c084fc; padding: 4px 0;">Agência
                         Digital</span>
+                    <span style="padding: 0 10px;"></span>
                 </div>
                 <!-- Título principal - Ajustado para max-width específico -->
                 <h1 class="hero-title-custom">
@@ -156,9 +164,9 @@
 
                 <div class="hero-actions">
                     <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
-                        class="btn btn-primary">Quero Um Site Que Vende <i class="ri-arrow-right-line"
-                            style="margin-left: 6px;"></i></a>
-                    <a href="#portfolio" class="btn btn-outline">Ver Projetos</a>
+                        class="btn btn-primary btn-shimmer reflective-border">Quero Um Site Que Vende <i
+                            class="ri-arrow-right-line" style="margin-left: 6px;"></i></a>
+                    <a href="#portfolio" class="btn btn-outline glass-panel reflective-border">Ver Projetos</a>
                 </div>
 
                 <!-- Mini Prova Social Atualizada -->
@@ -183,7 +191,7 @@
             </div>
 
             <div class="hero-card-container fade-up">
-                <div class="hero-card">
+                <div class="hero-card glass-panel reflective-border">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
                         <span
                             style="background: rgba(138, 43, 226, 0.12); color: #c084fc; padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid rgba(138, 43, 226, 0.3);">PROJETO
@@ -326,19 +334,21 @@
             </div>
 
             <div class="services-grid fade-up stagger-children">
-                <div class="service-card">
+                <div class="service-card glass-card-hover reflective-border">
                     <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
                     <!-- H3 Sentence case -->
                     <h3 style="margin-bottom: 12px; color: #FFFFFF;">Sites profissionais</h3>
                     <p>Institucionais estratégicos para apresentar sua marca e gerar autoridade.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="ri-shopping-bag-3-line"></i></div>
+                <div class="service-card glass-card-hover reflective-border"
+                    style="border-color: var(--primary); background: rgba(138, 43, 226, 0.04);">
+                    <div class="service-icon" style="background: var(--primary); color: white;"><i
+                            class="ri-shopping-bag-3-line"></i></div>
                     <!-- H3 Sentence case -->
                     <h3 style="margin-bottom: 12px; color: #FFFFFF;">Lojas virtuais</h3>
                     <p>Venda seus produtos online com segurança, experiência e conversão.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card glass-card-hover reflective-border">
                     <div class="service-icon"><i class="ri-rocket-line"></i></div>
                     <!-- H3 Sentence case -->
                     <h3 style="margin-bottom: 12px; color: #FFFFFF;">Landing pages</h3>
@@ -728,20 +738,30 @@
     <!-- CTA Final -->
     <section id="contato"
         style="background: radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.1) 0%, transparent 65%), var(--bg-dark); text-align: center; padding: 120px 0; position: relative; overflow: hidden;">
+        <div class="mesh-gradient-bg" style="opacity: 0.3;">
+            <div class="mesh-circle"
+                style="background: var(--primary); bottom: -20%; left: 20%; width: 800px; height: 800px; opacity: 0.1;">
+            </div>
+        </div>
         <div class="container fade-up">
-            <!-- H2 Title Case -->
-            <h2 class="section-title titulo-fixo" style="max-width: 16em;">Pronto Para Ter Um Site Que <span
-                    class="text-gradient">Vende De Verdade?</span></h2>
+            <div class="glass-panel reflective-border"
+                style="padding: 60px; border-radius: 40px; background: rgba(255,255,255,0.02);">
+                <!-- H2 Title Case -->
+                <h2 class="section-title titulo-fixo" style="max-width: 16em;">Pronto Para Ter Um Site Que <span
+                        class="text-gradient">Vende De Verdade?</span></h2>
 
-            <!-- Urgência - Mobile Break Added -->
-            <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted);">Comece Hoje.<br
-                    class="mobile-br"> Seu Site Pronto Em Até 7 Dias.</p>
+                <!-- Urgência - Mobile Break Added -->
+                <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--text-muted);">Comece Hoje.<br
+                        class="mobile-br"> Seu Site Pronto Em Até 7 Dias.</p>
 
-            <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
-                class="btn btn-primary" style="font-size: 1.1rem; padding: 18px 44px;">
-                <i class="ri-whatsapp-line" style="margin-right: 10px;"></i> Falar Agora Com a LOGOS
-            </a>
-            <p style="margin-top: 20px; font-size: 0.9rem; color: #C8C8C8;">Sites, lojas virtuais e landing pages.</p>
+                <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
+                    class="btn btn-primary btn-shimmer reflective-border"
+                    style="font-size: 1.1rem; padding: 18px 44px;">
+                    <i class="ri-whatsapp-line" style="margin-right: 10px;"></i> Falar Agora Com a LOGOS
+                </a>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: #C8C8C8;">Sites, lojas virtuais e landing pages.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -801,10 +821,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Custom Cursor Elements -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
