@@ -84,28 +84,33 @@
         const body = document.body;
         if (!toggleBtn) return;
 
+        const icon = toggleBtn.querySelector('i');
+
+        function updateIcon() {
+            if (body.classList.contains('light-theme')) {
+                icon.className = 'ri-moon-line'; // In light mode, show moon to switch to dark
+            } else {
+                icon.className = 'ri-sun-line'; // In dark mode, show sun to switch to light
+            }
+        }
+
         toggleBtn.addEventListener('click', () => {
             body.classList.toggle('light-theme');
-            const icon = toggleBtn.querySelector('i');
-            if (body.classList.contains('light-theme')) {
-                icon.classList.remove('ri-moon-line');
-                icon.classList.add('ri-sun-line');
-            } else {
-                icon.classList.remove('ri-sun-line');
-                icon.classList.add('ri-moon-line');
-            }
+            updateIcon();
+            localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
         });
 
-        // Initialize icon based on current class
-        const icon = toggleBtn.querySelector('i');
-        if (body.classList.contains('light-theme')) {
-            icon.classList.remove('ri-moon-line');
-            icon.classList.add('ri-sun-line');
-        } else {
-            icon.classList.remove('ri-sun-line');
-            icon.classList.add('ri-moon-line');
+        // Initialize from local storage or default
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+        } else if (savedTheme === 'light') {
+            body.classList.add('light-theme');
         }
+
+        updateIcon();
     }
+
 
     function initProjectModal() {
         const modal = document.getElementById('projectModal');
