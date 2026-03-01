@@ -88,7 +88,8 @@
     </script>
 </head>
 
-<body>
+<body class="light-theme">
+
 
     <!-- TOP BAR -->
     <div class="top-bar">
@@ -120,6 +121,10 @@
             </nav>
 
             <div style="display: flex; gap: 15px; align-items: center;">
+                <button id="theme-toggle" class="btn btn-outline"
+                    style="padding: 10px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
+                    <i class="ri-sun-line"></i>
+                </button>
                 <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
                     class="btn btn-primary header-cta btn-shimmer reflective-border">
                     <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
@@ -128,6 +133,7 @@
                     <i class="ri-menu-line"></i>
                 </div>
             </div>
+
         </div>
     </header>
 
@@ -203,7 +209,8 @@
                             </div>
                         </div>
                     </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: white;">Alta conversão</h3>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">Alta conversão</h3>
+
                     <div style="margin-bottom: 25px; color: #C8C8C8; display:flex; flex-direction: column; gap: 8px;">
                         <!-- Novos bullets mais fortes -->
                         <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i
@@ -227,7 +234,10 @@
                             <i class="ri-user-star-line"></i>
                         </div>
                         <div>
-                            <p style="font-size: 0.9rem; color: white; margin-bottom: 2px; font-weight: 600;">"Meu
+                            <p
+                                style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 2px; font-weight: 600;">
+                                "Meu
+
                                 faturamento dobrou."</p>
                             <span style="font-size: 0.75rem; color: var(--primary); text-transform: uppercase;">Cliente
                                 satisfeito</span>
@@ -254,6 +264,7 @@
                 <div class="why-card negative">
                     <!-- H3 Sentence case -->
                     <h3 style="color: #ff8fa3; margin-bottom: 24px; font-size: 1.5rem;">Sem site profissional</h3>
+
                     <ul class="why-list">
                         <li style="color: #C8C8C8;"><i class="ri-error-warning-line why-icon"
                                 style="color: #ff8fa3;"></i> Seu cliente não encontra informações claras.</li>
@@ -331,24 +342,39 @@
             <div class="services-grid fade-up stagger-children">
                 <div class="service-card glass-card-hover reflective-border">
                     <div class="service-icon"><i class="ri-layout-masonry-line"></i></div>
-                    <!-- H3 Sentence case -->
-                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Sites profissionais</h3>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Sites profissionais</h3>
                     <p>Institucionais estratégicos para apresentar sua marca e gerar autoridade.</p>
                 </div>
                 <div class="service-card glass-card-hover reflective-border"
                     style="border-color: var(--primary); background: rgba(138, 43, 226, 0.04);">
                     <div class="service-icon" style="background: var(--primary); color: white;"><i
                             class="ri-shopping-bag-3-line"></i></div>
-                    <!-- H3 Sentence case -->
-                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Lojas virtuais</h3>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Lojas virtuais</h3>
                     <p>Venda seus produtos online com segurança, experiência e conversão.</p>
                 </div>
                 <div class="service-card glass-card-hover reflective-border">
                     <div class="service-icon"><i class="ri-rocket-line"></i></div>
-                    <!-- H3 Sentence case -->
-                    <h3 style="margin-bottom: 12px; color: #FFFFFF;">Landing pages</h3>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Landing pages</h3>
                     <p>Páginas de oferta única focadas em capturar leads ou vender produtos.</p>
                 </div>
+                <!-- NOVOS SERVIÇOS -->
+                <div class="service-card glass-card-hover reflective-border">
+                    <div class="service-icon"><i class="ri-google-line"></i></div>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Google Meu Negócio</h3>
+                    <p>Otimização para sua empresa aparecer no topo das buscas locais e Maps.</p>
+                </div>
+                <div class="service-card glass-card-hover reflective-border">
+                    <div class="service-icon"><i class="ri-links-line"></i></div>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Link na Bio</h3>
+                    <p>Página personalizada para centralizar seus canais e converter seguidores.</p>
+                </div>
+                <div class="service-card glass-card-hover reflective-border" style="border-color: #c084fc;">
+                    <div class="service-icon" style="color: #c084fc;"><i class="ri-robot-2-line"></i></div>
+                    <h3 style="margin-bottom: 12px; color: var(--text-main);">IA & Automações</h3>
+                    <p>Soluções inteligentes para automatizar seu atendimento e processos.</p>
+                </div>
+
+
             </div>
         </div>
     </section>
@@ -448,7 +474,8 @@
                     <span class="step-num">01</span>
                     <div class="step-content">
                         <!-- H3 Sentence case -->
-                        <h3 style="color: #FFFFFF;">Briefing</h3>
+                        <h3 style="color: var(--text-main);">Briefing</h3>
+
                         <p style="font-size: 0.9rem;">Entendemos seu negócio e objetivos.</p>
                     </div>
                 </div>
@@ -456,7 +483,8 @@
                     <span class="step-num">02</span>
                     <div class="step-content">
                         <!-- H3 Sentence case -->
-                        <h3 style="color: #FFFFFF;">Design</h3>
+                        <h3 style="color: var(--text-main);">Design</h3>
+
                         <p style="font-size: 0.9rem;">Criamos o layout exclusivo da sua marca.</p>
                     </div>
                 </div>
@@ -464,7 +492,8 @@
                     <span class="step-num">03</span>
                     <div class="step-content">
                         <!-- H3 Sentence case -->
-                        <h3 style="color: #FFFFFF;">Dev</h3>
+                        <h3 style="color: var(--text-main);">Dev</h3>
+
                         <p style="font-size: 0.9rem;">Programação e otimização de velocidade.</p>
                     </div>
                 </div>
@@ -472,7 +501,8 @@
                     <span class="step-num">04</span>
                     <div class="step-content">
                         <!-- H3 Sentence case -->
-                        <h3 style="color: #FFFFFF;">Entrega</h3>
+                        <h3 style="color: var(--text-main);">Entrega</h3>
+
                         <p style="font-size: 0.9rem;">Site no ar e suporte contínuo.</p>
                     </div>
                 </div>
@@ -614,7 +644,8 @@
             <div class="portfolio-grid fade-up stagger-children">
                 <!-- Plano 1 -->
                 <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
-                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Site Institucional</h3>
+                    <h3 style="color: var(--text-main); margin-bottom: 10px;">Site Institucional</h3>
+
                     <p style="margin-bottom: 30px;"><strong>a partir de R$ 497</strong><br>Para empresas que precisam de
                         presença digital sólida e profissional.</p>
                     <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS"
@@ -643,7 +674,8 @@
                     <div
                         style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 16px; border-radius: 4px; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; white-space: nowrap; font-family: var(--font-body);">
                         MAIS POPULAR</div>
-                    <h3 style="color: #FFFFFF; margin-bottom: 10px; margin-top: 8px;">Landing Page</h3>
+                    <h3 style="color: var(--text-main); margin-bottom: 10px; margin-top: 8px;">Landing Page</h3>
+
                     <p style="margin-bottom: 30px;"><strong>a partir de R$ 297</strong><br>Perfeita para vendas rápidas,
                         captar leads e campanhas de tráfego pago.</p>
                     <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+uma+landing+page+profissional+da+LOGOS"
@@ -666,7 +698,8 @@
 
                 <!-- Plano 3 -->
                 <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
-                    <h3 style="color: #FFFFFF; margin-bottom: 10px;">Loja Virtual</h3>
+                    <h3 style="color: var(--text-main); margin-bottom: 10px;">Loja Virtual</h3>
+
                     <p style="margin-bottom: 30px;"><strong>a partir de R$ 749</strong><br>Para quem quer vender
                         produtos online com uma estrutura completa.</p>
                     <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+e-commerce+profissional+da+LOGOS"

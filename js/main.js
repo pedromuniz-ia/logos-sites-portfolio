@@ -79,6 +79,34 @@
         }, { passive: true });
     }
 
+    function initThemeToggle() {
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        if (!toggleBtn) return;
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const icon = toggleBtn.querySelector('i');
+            if (body.classList.contains('light-theme')) {
+                icon.classList.remove('ri-moon-line');
+                icon.classList.add('ri-sun-line');
+            } else {
+                icon.classList.remove('ri-sun-line');
+                icon.classList.add('ri-moon-line');
+            }
+        });
+
+        // Initialize icon based on current class
+        const icon = toggleBtn.querySelector('i');
+        if (body.classList.contains('light-theme')) {
+            icon.classList.remove('ri-moon-line');
+            icon.classList.add('ri-sun-line');
+        } else {
+            icon.classList.remove('ri-sun-line');
+            icon.classList.add('ri-moon-line');
+        }
+    }
+
     function initProjectModal() {
         const modal = document.getElementById('projectModal');
         const modalImg = document.getElementById('modalImg');
@@ -120,8 +148,10 @@
         initFaqAccordion();
         initMobileMenu();
         initHeaderScrollState();
+        initThemeToggle();
         initProjectModal();
     }
+
 
     init();
 })();
