@@ -1014,8 +1014,8 @@ header {
 .service-icon {
     width: 50px;
     height: 50px;
-    background: rgba(138, 43, 226, 0.12);
-    border: 1px solid rgba(138, 43, 226, 0.2);
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-glow);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1026,10 +1026,19 @@ header {
     transition: 0.3s;
 }
 
-.service-card:hover .service-icon {
-    background: rgba(138, 43, 226, 0.2);
-    box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
+.light-theme .service-icon {
+    background: var(--accent-bg);
+    border-color: var(--accent-glow);
+    color: var(--primary);
 }
+
+
+.service-card:hover .service-icon {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+}
+
 
 /* Portfolio */
 .portfolio-grid {

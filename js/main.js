@@ -85,6 +85,7 @@
         if (!toggleBtn) return;
 
         const icon = toggleBtn.querySelector('i');
+        if (!icon) return;
 
         function updateIcon() {
             if (body.classList.contains('light-theme')) {
@@ -100,7 +101,7 @@
             localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
         });
 
-        // Initialize from local storage or default
+        // Initialize from local storage or system preference
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
             body.classList.remove('light-theme');
