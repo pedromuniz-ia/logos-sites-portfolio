@@ -1,0 +1,380 @@
+/* LINKS PAGE CUSTOM STYLES */
+
+/* Reset any global shifts from main.css */
+body.links-page {
+    background-color: var(--bg-main) !important;
+    min-height: 100vh;
+    padding: 60px 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-start !important;
+    position: relative !important;
+    overflow-x: hidden !important;
+    margin: 0 !important;
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+.links-main-wrapper {
+    max-width: 680px !important;
+    width: 90% !important;
+    z-index: 10;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    position: relative !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    left: 0 !important;
+    transform: none !important;
+}
+
+/* Header Section */
+.profile-header {
+    text-align: center;
+    margin-bottom: 48px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-img-wrapper {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    padding: 6px;
+    margin: 0 auto 24px;
+    background: var(--bg-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.25);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--bg-card);
+}
+
+.profile-name {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--text-main);
+    letter-spacing: -1.5px;
+}
+
+.profile-status {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.status-badge {
+    background: var(--accent-bg);
+    border: 1px solid var(--accent-glow);
+    color: var(--text-main);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    backdrop-filter: blur(10px);
+}
+
+.status-badge.live .pulse {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px #10b981;
+    animation: statusPulse 2s infinite;
+}
+
+@keyframes statusPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.3);
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.profile-bio {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 460px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-areas:
+        "portfolio-sites portfolio-sites"
+        "portfolio-ai portfolio-ai"
+        "whatsapp services"
+        "website services"
+        "instagram linkedin"
+        "footer footer";
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.bento-card {
+    border-radius: 30px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    opacity: 0;
+    /* Animated via JS */
+    transform: translateY(20px);
+}
+
+.bento-card:hover {
+    transform: translateY(-8px) scale(1.015);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), 0 0 30px rgba(138, 43, 226, 0.15);
+}
+
+.card-large {
+    min-height: 160px;
+}
+
+.card-medium {
+    min-height: 140px;
+}
+
+.accent-card {
+    background: var(--primary);
+    border: none;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
+}
+
+.accent-card:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 15px 45px rgba(138, 43, 226, 0.5);
+}
+
+.accent-card h3,
+.accent-card p,
+.accent-card .card-icon i,
+.accent-card .card-arrow i {
+    color: #fff !important;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card-icon {
+    font-size: 1.85rem;
+    color: var(--primary);
+}
+
+.card-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.card-text p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+}
+
+.card-arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 1.35rem;
+    color: var(--text-muted);
+    opacity: 0.4;
+    transition: transform 0.3s ease;
+}
+
+.bento-card:hover .card-arrow {
+    transform: translate(4px, -4px);
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* Small Cards */
+.card-small {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 24px;
+}
+
+.card-small .card-icon {
+    font-size: 1.35rem;
+}
+
+.card-small span {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-main);
+}
+
+/* List Card */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.card-list h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+.services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.services-list li {
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.services-list li i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+/* Footer Card */
+.card-footer {
+    text-align: center;
+    padding: 28px;
+    align-items: center;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+.card-footer p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+}
+
+.shimmer-text {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #555 0%, #fff 50%, #555 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .bento-grid {
+        grid-template-areas:
+            "portfolio-sites portfolio-sites"
+            "portfolio-ai portfolio-ai"
+            "whatsapp whatsapp"
+            "services services"
+            "website website"
+            "instagram linkedin"
+            "footer footer";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .links-page {
+        padding: 40px 16px !important;
+    }
+
+    .profile-name {
+        font-size: 2rem;
+    }
+
+    .card-list {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-template-areas:
+            "portfolio-sites"
+            "portfolio-ai"
+            "whatsapp"
+            "services"
+            "website"
+            "instagram"
+            "linkedin"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .profile-bio {
+        font-size: 1rem;
+    }
+}
+
+/* Reset for Fade Animations in links page to work with main.js */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.fade-up.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
