@@ -79,6 +79,40 @@
         }, { passive: true });
     }
 
+    function initThemeToggle() {
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        if (!toggleBtn) return;
+
+        const icon = toggleBtn.querySelector('i');
+        if (!icon) return;
+
+        function updateIcon() {
+            if (body.classList.contains('light-theme')) {
+                icon.className = 'ri-moon-line'; // In light mode, show moon to switch to dark
+            } else {
+                icon.className = 'ri-sun-line'; // In dark mode, show sun to switch to light
+            }
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            updateIcon();
+            localStorage.setItem('theme', body.classList.contains('light-theme') ? 'light' : 'dark');
+        });
+
+        // Initialize from local storage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.remove('light-theme');
+        } else if (savedTheme === 'light') {
+            body.classList.add('light-theme');
+        }
+
+        updateIcon();
+    }
+
+
     function initProjectModal() {
         const modal = document.getElementById('projectModal');
         const modalImg = document.getElementById('modalImg');
@@ -120,8 +154,10 @@
         initFaqAccordion();
         initMobileMenu();
         initHeaderScrollState();
+        initThemeToggle();
         initProjectModal();
     }
+
 
     init();
 })();
