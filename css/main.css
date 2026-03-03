@@ -34,6 +34,7 @@
     /* TIPOGRAFIA */
     --font-display: 'Syne', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
+    --line-color: rgba(255, 255, 255, 0.04);
 }
 
 .light-theme {
@@ -61,6 +62,7 @@
     --accent-bg: rgba(124, 58, 237, 0.06);
 
     --toggle-icon: #18181B;
+    --line-color: rgba(0, 0, 0, 0.04);
 }
 
 
@@ -423,6 +425,36 @@ ul {
     max-width: 1240px;
     margin: 0 auto;
     padding: 0 24px;
+}
+
+/* Premium Structural Background */
+.structural-lines {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1400px;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    border-left: 1px solid var(--line-color);
+    border-right: 1px solid var(--line-color);
+}
+
+.embers-vignette {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.dark-theme .embers-vignette {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
 }
 
 /* BUTTONS HARMONY UPGRADE - HUBLÁ STYLE */
