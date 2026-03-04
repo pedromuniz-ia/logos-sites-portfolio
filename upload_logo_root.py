@@ -1,8 +1,8 @@
-
 import requests
 import base64
 import os
 import hashlib
+import time
 
 id_key = "0058bc6408802380000000001"
 app_key = "K005khqL9oFHatlJ/yX9Qwf5jHQaHxk"
@@ -34,7 +34,7 @@ def upload_file(upload_data, local_path, remote_path):
     headers = {
         "Authorization": upload_token,
         "X-Bz-File-Name": remote_path,
-        "Content-Type": "image/webp",
+        "Content-Type": "image/png",
         "X-Bz-Content-Sha1": sha1
     }
     
@@ -42,11 +42,18 @@ def upload_file(upload_data, local_path, remote_path):
     return r.json()
 
 auth = authorize()
-upload_info = get_upload_url(auth)
 
-local_logo = "images/LOGO-LOGOS.webp"
-remote_logo = "LOGO-LOGOS.webp" # Uploading to root
+files_to_upload = [
+    "og-home.png",
+    "og-links.png",
+    "og-ia.png",
+    "og-privacy.png",
+    "og-terms.png"
+]
 
-print(f"Uploading {local_logo} to root...")
-res = upload_file(upload_info, local_logo, remote_logo)
-print(res)
+for file in files_to_upload:
+    print(f"Uploading {file} to root...")
+    upload_info = get_upload_url(auth)
+    res = upload_file(upload_info, file, file)
+    print(res)
+    time.sleep(1)
