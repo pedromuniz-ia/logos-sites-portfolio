@@ -895,6 +895,18 @@
     <!-- Scripts -->
     <script src="js/main.js"></script>
 
+    <!-- Localo — Dynamic Local Business Structured Data -->
+    <script>
+    fetch("https://api.localo.com/api/structured_data/gPCeydfEDTii6eXy9i8HyT0GWPuj_DiYAK72I9RJoNU/local_business")
+    .then(response => response.json())
+    .then(data => {
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(data);
+      document.head.appendChild(script);
+    });
+    </script>
+
 </body>
 
 </html>
