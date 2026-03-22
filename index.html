@@ -51,11 +51,9 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap">
 
-    <!-- Remix Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
 
-
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css?v=31">
 
     <!-- Local Business Schema -->
     <script type="application/ld+json">
@@ -130,15 +128,12 @@
             </a>
 
             <nav class="nav-links">
-                <a href="#inicio" class="nav-link">Início</a>
-                <a href="#por-que" class="nav-link">Por Que Ter Um Site?</a>
                 <a href="#servicos" class="nav-link">Serviços</a>
                 <a href="#processo" class="nav-link">Processo</a>
                 <a href="#portfolio" class="nav-link">Portfólio</a>
                 <a href="#planos" class="nav-link">Planos</a>
-                <a href="#faq" class="nav-link">FAQ</a>
 
-                <!-- 7) Button inside menu for mobile -->
+                <!-- Button inside menu for mobile -->
                 <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
                     class="mobile-menu-cta">
                     <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
@@ -146,11 +141,6 @@
             </nav>
 
             <div style="display: flex; gap: 15px; align-items: center;">
-                <button id="theme-toggle" class="btn btn-outline footer-logo-btn">
-                    <i class="ri-moon-line"></i>
-                </button>
-
-
                 <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
                     class="btn btn-primary header-cta btn-shimmer reflective-border">
                     <i class="ri-whatsapp-line" style="margin-right: 6px;"></i> Fale Conosco
@@ -163,124 +153,64 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
+    <!-- Hero Section (Estilo Plinia) -->
+    <section id="inicio" class="hero hero-plinia">
+        <!-- Abstract Background Effects -->
         <div class="mesh-gradient-bg">
             <div class="mesh-circle"
                 style="background: var(--primary); top: -10%; right: 5%; width: 600px; height: 600px;"></div>
             <div class="mesh-circle"
-                style="background: #b06be8; bottom: 10%; left: 5%; width: 500px; height: 500px; animation-delay: -5s;">
-            </div>
+                style="background: #b06be8; bottom: 10%; left: 5%; width: 500px; height: 500px; animation-delay: -5s;"></div>
         </div>
         <div class="hero-spotlight"></div>
         <div class="hero-bg-effect"></div>
-        <div class="container hero-grid" style="position: relative; z-index: 2;">
-            <div class="hero-content fade-up">
-                <!-- Eyebrow label -->
-                <span
-                    style="display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; padding: 6px 18px; border: 1px solid var(--accent-glow); border-radius: 100px; background: var(--accent-bg);">Agência
-                    Digital</span>
 
-                <!-- Título principal - Ajustado para max-width específico -->
-                <h1 class="hero-title-custom">
-                    Venda Mais Com<br>
-                    Um <span class="text-gradient">Site Profissional</span><br>
-                    Da LOGOS Company
-                </h1>
-                <p class="hero-subtitle">Criamos sites, lojas virtuais e landing pages que geram autoridade, confiança e
-                    conversão para o seu negócio.</p>
-
-                <div class="hero-actions">
-                    <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
-                        class="btn btn-primary btn-shimmer reflective-border">Quero Um Site Que Vende <i
-                            class="ri-arrow-right-line" style="margin-left: 6px;"></i></a>
-                    <a href="#portfolio" class="btn btn-outline glass-panel reflective-border">Ver Projetos</a>
-                </div>
-
-                <!-- Mini Prova Social Atualizada -->
-                <div style="display: flex; align-items: center; gap: 12px; margin-top: 30px;">
-                    <div style="display: flex; margin-left: 10px;">
-                        <!-- Placeholders de avatar simples -->
-                        <div
-                            style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/32.jpg'); background-size: cover;">
-                        </div>
-                        <div
-                            style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/44.jpg'); background-size: cover;">
-                        </div>
-                        <div
-                            style="width: 30px; height: 30px; border-radius: 50%; background: #ccc; border: 2px solid #060B17; margin-left: -10px; background-image: url('images/85.jpg'); background-size: cover;">
-                        </div>
-                    </div>
-                    <p
-                        style="font-size: 0.875rem; color: var(--text-muted); font-weight: 500; max-width: 280px; line-height: 1.4;">
-                        +35 clientes atendidos <span style="color: var(--text-main);">⭐⭐⭐⭐⭐</span>
-                    </p>
-
-                </div>
+        <div class="container relative plinia-container">
+            <!-- Portrait Image — inside container for mobile flow -->
+            <div class="hero-portrait fade-up">
+                <img src="https://f005.backblazeb2.com/file/landing-pages/images/pedro-founder-nobg.png" alt="Pedro - Fundador LOGOS" class="founder-img" fetchpriority="high" decoding="async" width="800" height="600">
             </div>
 
-            <div class="hero-card-container fade-up">
-                <div class="hero-card glass-panel reflective-border">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
-                        <span
-                            style="background: var(--accent-bg); color: var(--accent); padding: 4px 12px; border-radius: 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; border: 1px solid var(--accent-glow);">PROJETO
-                            PREMIUM</span>
-
-                        <div style="display: flex; gap: 6px;">
-                            <div
-                                style="width: 9px; height: 9px; border-radius: 50%; background: #ff5f56; box-shadow: 0 0 4px rgba(255,95,86,0.6);">
-                            </div>
-                            <div
-                                style="width: 9px; height: 9px; border-radius: 50%; background: #ffbd2e; box-shadow: 0 0 4px rgba(255,189,46,0.6);">
-                            </div>
-                            <div
-                                style="width: 9px; height: 9px; border-radius: 50%; background: #8a2be2; box-shadow: 0 0 4px rgba(138,43,226,0.6);">
-                            </div>
-                        </div>
-                    </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 10px; color: var(--text-main);">Alta conversão</h3>
-
-                    <div
-                        style="margin-bottom: 25px; color: var(--text-muted); display:flex; flex-direction: column; gap: 8px;">
-                        <!-- Novos bullets mais fortes -->
-                        <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i
-                                class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Textos profissionais focados
-                            em conversão</div>
-
-                        <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i
-                                class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Design premium que transmite
-                            autoridade</div>
-                        <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i
-                                class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Velocidade máxima no Google
-                            (Core Web Vitals A+)</div>
-                        <div style="display:flex; align-items:center; gap:8px; font-size:0.9rem;"><i
-                                class="ri-checkbox-circle-fill" style="color:#8a2be2;"></i> Copy pronta para vender
-                            desde o primeiro dia</div>
-                    </div>
-
-                    <div
-                        style="display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
-                        <div
-                            style="width: 45px; height: 45px; background: #333; border-radius: 50%; display:flex; align-items:center; justify-content:center; color:white; font-size:1.2rem;">
-                            <i class="ri-user-star-line"></i>
-                        </div>
-                        <div>
-                            <p
-                                style="font-size: 0.9rem; color: var(--text-main); margin-bottom: 2px; font-weight: 600;">
-                                "Meu
-
-                                faturamento dobrou."</p>
-                            <span style="font-size: 0.75rem; color: var(--primary); text-transform: uppercase;">Cliente
-                                satisfeito</span>
-                        </div>
-                    </div>
+            <!-- Animated Floating Badges (Right side) -->
+            <div class="floating-badges right-badges">
+                <div class="badge-1 glass-badge">
+                    <i class="ri-code-s-slash-line" style="color: var(--primary); font-size: 1.2rem;"></i> Sites personalizados
+                </div>
+                <div class="badge-2 glass-badge">
+                    <i class="ri-blaze-line" style="color: var(--primary); font-size: 1.2rem;"></i> Sites que convertem
+                </div>
+                <div class="badge-3 glass-badge">
+                    <i class="ri-vip-diamond-line" style="color: var(--primary); font-size: 1.2rem;"></i> Sites que impressionam
+                </div>
+            </div>
+            
+            <!-- Floating Cursor Tag -->
+            <div class="floating-cursor left-cursor">
+                <div class="cursor-tag">Deixa que a Logos cria!</div>
+            </div>
+            
+            <!-- Main Glass Card (Bottom overlapping) -->
+            <div class="main-glass-card glass-panel reflective-border fade-up">
+                <span class="eyebrow-tag" style="display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; padding: 6px 20px; border: 1px solid var(--accent-glow); border-radius: 100px; background: var(--accent-bg);">Sites de alto impacto</span>
+                
+                <h1 class="hero-title-custom">
+                    Transforme seu negócio com um site otimizado para <br>
+                    <span class="text-gradient" style="font-weight: 600; font-style: italic;">aumentar suas vendas e autoridade.</span>
+                </h1>
+                
+                <div class="hero-actions">
+                    <a href="https://wa.me/556281250954?text=Olá%C3%A1%2C+vim+do+site+e+gostaria+de+um+orçamento"
+                        class="btn btn-primary btn-shimmer reflective-border">
+                        Quero Um Site Que Vende <i class="ri-arrow-right-line" style="margin-left: 6px;"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Por que ter um site -->
-    <section id="por-que" class="section-light" style="padding: 100px 0;">
+    <section id="por-que" class="section-light">
         <div class="container">
             <div class="section-header fade-up">
                 <span class="section-tag">Importância Digital</span>
@@ -325,6 +255,7 @@
         </div>
     </section>
 
+
     <!-- Site vs Instagram -->
     <section class="vs-section" style="padding: 100px 0;">
         <div class="container">
@@ -363,6 +294,7 @@
         </div>
     </section>
 
+
     <!-- Serviços -->
     <section id="servicos" class="section-light" style="padding: 100px 0;">
         <div class="container">
@@ -389,28 +321,11 @@
                     <h3 style="margin-bottom: 12px; color: var(--text-main);">Landing pages</h3>
                     <p>Páginas de oferta única focadas em capturar leads ou vender produtos.</p>
                 </div>
-                <!-- NOVOS SERVIÇOS -->
-                <div class="service-card glass-card-hover reflective-border">
-                    <div class="service-icon"><i class="ri-google-line"></i></div>
-                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Google Meu Negócio</h3>
-                    <p>Otimização para sua empresa aparecer no topo das buscas locais e Maps.</p>
                 </div>
-                <div class="service-card glass-card-hover reflective-border">
-                    <div class="service-icon"><i class="ri-links-line"></i></div>
-                    <h3 style="margin-bottom: 12px; color: var(--text-main);">Link na Bio</h3>
-                    <p>Página personalizada para centralizar seus canais e converter seguidores.</p>
-                </div>
-                <div class="service-card glass-card-hover reflective-border" style="border-color: var(--accent);">
-                    <div class="service-icon" style="color: var(--accent);"><i class="ri-robot-2-line"></i></div>
-                    <h3 style="margin-bottom: 12px; color: var(--text-main);">IA & Automações</h3>
-                    <p>Soluções inteligentes para automatizar seu atendimento e processos.</p>
-                </div>
-
-
-
             </div>
         </div>
     </section>
+
 
     <section id="velocidade" class="theme-gradient"
         style="color: var(--text-main); padding: 100px 0; position: relative; overflow: hidden;">
@@ -452,18 +367,38 @@
     </section>
 
     <!-- Nova Seção: Quem é a LOGOS Company -->
-    <section class="section-light" style="padding: 80px 0; background: var(--bg-secondary);">
-        <div class="container" style="text-align: center;">
-            <div class="section-header fade-up" style="margin-bottom: 30px;">
-                <h2 class="section-title titulo-fixo">Quem É A <span class="text-gradient">LOGOS Company</span></h2>
+    <section class="section-light" style="padding: 100px 0; background: var(--bg-secondary);">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+                <div class="fade-up" style="flex: 1; min-width: 300px;">
+                    <span class="section-tag">Muito Prazer</span>
+                    <h2 class="section-title titulo-fixo" style="text-align: left; margin-bottom: 24px;">Quem Está Por Trás Da <span class="text-gradient">LOGOS</span></h2>
+                    
+                    <h3 style="color: var(--text-main); font-size: 1.4rem; margin-bottom: 16px;">Oi, eu sou o Pedro!</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px;">
+                        Desde que comecei a trabalhar com tecnologia e design de interfaces, minha missão sempre foi uma só: transformar a presença digital de empreendedores em verdadeiras máquinas de prestígio e conversão.
+                    </p>
+                    <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 30px;">
+                        A LOGOS Company não nasceu para entregar apenas "layouts bonitos na internet". Acredito que o seu negócio precisa de resultados reais - mais autoridade no seu nicho, respeito do público e lucratividade na sua escala de vendas. Sou comprometido com os detalhes de todos os projetos e não entrego nada menos que a excelência total.
+                    </p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+Pedro!+Vim+do+site+e+gostaria+de+falar+sobre+meu+projeto."
+                        class="btn btn-outline">Falar diretamente comigo</a>
+                </div>
+                
+                <div class="fade-up" style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+                    <!-- Placeholder fotográfico -->
+                    <div style="width: 100%; max-width: 400px; aspect-ratio: 1; border-radius: 20px; background: var(--bg-dark); border: 1px solid var(--border); overflow: hidden; position: relative;">
+                         <!-- Sugestão: adicione sua foto aqui futuramente -->
+                        <img src="https://f005.backblazeb2.com/file/landing-pages/images/pedro-fundador-mobile.webp" alt="Pedro Muniz - LOGOS Company" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: saturate(1.1) contrast(1.1);">
+                        <div style="position: absolute; bottom: 0; left: 0; width: 100%; padding: 25px; background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);">
+                            <span style="color: white; font-weight: 700; font-size: 1.4rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Pedro Muniz</span>
+                            <span style="display: block; color: var(--primary); font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Fundador & Estrategista Digital</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="fade-up"
-                style="max-width: 640px; margin: 0 auto 48px; font-size: 1.1rem; color: var(--text-muted); line-height: 1.75;">
-                Somos especialistas em criação de sites que vendem. Já entregamos mais de 35 projetos para profissionais
-                e empresas que precisam de autoridade, velocidade e conversão.
-            </p>
-            <!-- Stats row -->
-            <div class="fade-up" style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;">
+            
+            <div class="fade-up" style="display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; margin-top: 60px; padding-top: 40px; border-top: 1px solid var(--border);">
                 <div style="text-align: center;">
                     <div
                         style="font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; color: var(--text-main); letter-spacing: -2px;">
@@ -494,58 +429,171 @@
         </div>
     </section>
 
+    <div class="section-divider"></div>
+
     <!-- Processo -->
-    <section id="processo" class="section-light" style="padding: 100px 0;">
+    <section id="processo" class="section-light">
         <div class="container">
             <div class="section-header fade-up">
                 <span class="section-tag">Passo A Passo</span>
-                <!-- H2 Title Case -->
                 <h2 class="section-title titulo-fixo">Como Funciona</h2>
             </div>
 
-            <div class="process-steps fade-up stagger-children">
-                <div class="step-card">
-                    <span class="step-num">01</span>
-                    <div class="step-content">
-                        <!-- H3 Sentence case -->
-                        <h3 style="color: var(--text-main);">Briefing</h3>
+            <div class="timeline fade-up">
+                <div class="timeline-line"></div>
 
-                        <p style="font-size: 0.9rem;">Entendemos seu negócio e objetivos.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="timeline-number">01</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Briefing Detalhado</h3>
+                        <p>Iniciamos com uma imersão no seu negócio, compreendendo suas metas, público e necessidades para construir a estratégia digital mais assertiva.</p>
                     </div>
                 </div>
-                <div class="step-card">
-                    <span class="step-num">02</span>
-                    <div class="step-content">
-                        <!-- H3 Sentence case -->
-                        <h3 style="color: var(--text-main);">Design</h3>
 
-                        <p style="font-size: 0.9rem;">Criamos o layout exclusivo da sua marca.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="timeline-number">02</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Planejamento Estratégico</h3>
+                        <p>Estruturamos toda a jornada do usuário e aplicamos a copy focada em persuasão, garantindo que o seu site funcione como o seu melhor vendedor 24h.</p>
                     </div>
                 </div>
-                <div class="step-card">
-                    <span class="step-num">03</span>
-                    <div class="step-content">
-                        <!-- H3 Sentence case -->
-                        <h3 style="color: var(--text-main);">Dev</h3>
 
-                        <p style="font-size: 0.9rem;">Programação e otimização de velocidade.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="timeline-number">03</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Design Premium</h3>
+                        <p>Elaboramos um layout original que transmite a autoridade incontestável da sua marca. Foco total em usabilidade inteligente (UX) e visual marcante (UI).</p>
                     </div>
                 </div>
-                <div class="step-card">
-                    <span class="step-num">04</span>
-                    <div class="step-content">
-                        <!-- H3 Sentence case -->
-                        <h3 style="color: var(--text-main);">Entrega</h3>
 
-                        <p style="font-size: 0.9rem;">Site no ar e suporte contínuo.</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <span class="timeline-number">04</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Desenvolvimento</h3>
+                        <p>Transformamos o design em um site responsivo e de altíssima velocidade. Aplicamos tecnologias avançadas e certificamos testes cruciais de SEO.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item timeline-item--highlight">
+                    <div class="timeline-marker">
+                        <span class="timeline-number">05</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Publicação e Suporte</h3>
+                        <p>Colocamos seu site no ar com a máxima segurança. A parceria continua: fornecemos documentação de uso e suporte técnico especializado para você.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Pilares de Valor -->
+    <section id="pilares">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag">Nossos Valores</span>
+                <h2 class="section-title titulo-fixo">Pilares Que Garantem <br>A <span class="text-gradient">Excelência</span></h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;" class="fade-up stagger-children">
+                <div class="service-card glass-panel reflective-border">
+                    <i class="ri-vip-diamond-line" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: inline-block;"></i>
+                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 12px;">Design de Alto Impacto</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Interfaces modernas que destacam sua marca da concorrência e transmitem alto nível de profissionalismo e confiança desde o primeiro segundo.</p>
+                </div>
+                <div class="service-card glass-panel reflective-border">
+                    <i class="ri-bullseye-line" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: inline-block;"></i>
+                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 12px;">Foco em Resultados</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Nosso objetivo transcende a estética visual. Criamos sites estruturados com técnicas fortes de copy e persuasão para captar clientes.</p>
+                </div>
+                <div class="service-card glass-panel reflective-border">
+                    <i class="ri-rocket-line" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: inline-block;"></i>
+                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 12px;">Velocidade de Entrega</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Acompanhamos o ritmo ágil que as vendas online demandam. Seu projeto do briefing ao ar rápido, mas sem tolerar nenhum sacrifício na qualidade final.</p>
+                </div>
+                <div class="service-card glass-panel reflective-border">
+                    <i class="ri-customer-service-2-line" style="font-size: 2.2rem; color: var(--primary); margin-bottom: 20px; display: inline-block;"></i>
+                    <h3 style="color: var(--text-main); font-size: 1.3rem; margin-bottom: 12px;">Apoio e Suporte</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">A parceria não acaba e você não é abandonado(a) após o pagamento. Fornecemos suporte técnico completo, documentação e monitoramento inteligente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="section-light" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header fade-up">
+                <span class="section-tag">+ De 35 Clientes Satisfeitos</span>
+                <h2 class="section-title titulo-fixo">O Que Estão <span class="text-gradient">Dizendo Sobre Nós</span></h2>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;" class="fade-up stagger-children">
+                <!-- Review 1 -->
+                <div class="service-card glass-panel reflective-border" style="background: var(--bg-main);">
+                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #333; overflow: hidden; border: 2px solid var(--border);">
+                             <img src="images/32.jpg" alt="Cliente Gustavo" onerror="this.src='https://ui-avatars.com/api/?name=Gustavo+Martins&background=random'" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-main); font-size: 1.1rem; margin: 0; font-weight: 700;">Gustavo L.</h4>
+                            <div style="color: #FFB400; font-size: 1rem; margin-top: 3px; display: flex; gap: 2px;">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width: 28px; margin-left: auto; filter: grayscale(1);">
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; font-style: italic;">"O trabalho do Pedro me impressionou totalmente. Ele trouxe uma cara extremamente mais premium para o meu negócio. Sem exageros, nós conseguimos fechar muito mais propostas de alto valor depois de lançar a LP."</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="service-card glass-panel reflective-border" style="background: var(--bg-main);">
+                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #333; overflow: hidden; border: 2px solid var(--border);">
+                             <img src="images/44.jpg" alt="Cliente Leticia" onerror="this.src='https://ui-avatars.com/api/?name=Leticia+Gomes&background=random'" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-main); font-size: 1.1rem; margin: 0; font-weight: 700;">Leticia S.</h4>
+                            <div style="color: #FFB400; font-size: 1rem; margin-top: 3px; display: flex; gap: 2px;">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width: 28px; margin-left: auto; filter: grayscale(1);">
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; font-style: italic;">"Eu estava com um site super travado no Wordpress antigo e que perdia cliques das campanhas todos os dias por conta de lentidão de carregamento. A LOGOS reconstruiu do zero com uma velocidade incrível. Recomendo de olhos fechados."</p>
+                </div>
+                
+                 <!-- Review 3 -->
+                 <div class="service-card glass-panel reflective-border" style="background: var(--bg-main);">
+                    <div style="display: flex; gap: 15px; align-items: center; margin-bottom: 20px;">
+                        <div style="width: 50px; height: 50px; border-radius: 50%; background-color: #333; overflow: hidden; border: 2px solid var(--border);">
+                             <img src="images/85.jpg" alt="Cliente Ricardo" onerror="this.src='https://ui-avatars.com/api/?name=Guilherme+B&background=random'" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="color: var(--text-main); font-size: 1.1rem; margin: 0; font-weight: 700;">Guilherme Braga</h4>
+                            <div style="color: #FFB400; font-size: 1rem; margin-top: 3px; display: flex; gap: 2px;">
+                                <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
+                            </div>
+                        </div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" style="width: 28px; margin-left: auto; filter: grayscale(1);">
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; font-style: italic;">"O foco na UX voltada pra conversão foi com certeza o nosso ponto de virada aqui. Em vez de entregar algo igual aos templates comuns da internet, percebi o cuidado estratégico para captar lides com qualidade visual. Excelente."</p>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
     <!-- PORTFOLIO -->
-    <section id="portfolio" style="padding: 100px 0;">
+    <section id="portfolio">
         <div class="container">
             <div class="section-header fade-up">
                 <span class="section-tag">Resultados Reais</span>
@@ -680,10 +728,9 @@
                 <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
                     <h3 style="color: var(--text-main); margin-bottom: 10px;">Site Institucional</h3>
 
-                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 497</strong><br>Para empresas que precisam de
-                        presença digital sólida e profissional.</p>
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+site+profissional+da+LOGOS"
-                        class="btn btn-outline" style="width: 100%;">Quero este plano</a>
+                    <p style="margin-bottom: 30px;">Estrutura completa para empresas que precisam de uma presença digital sólida, transmitindo autoridade e extrema confiança profissional no seu mercado de atuação.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+or%C3%A7amento+para+Site+Institucional"
+                        class="btn btn-outline" style="width: 100%;">Solicitar Orçamento</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line"
                                 style="color: var(--primary);"></i> Até 5 páginas</li>
@@ -708,12 +755,11 @@
                     <div
                         style="position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--primary); color: white; padding: 4px 16px; border-radius: 4px; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; white-space: nowrap; font-family: var(--font-body);">
                         MAIS POPULAR</div>
-                    <h3 style="color: var(--text-main); margin-bottom: 10px; margin-top: 8px;">Landing Page</h3>
+                    <h3 style="color: var(--text-main); margin-bottom: 10px; margin-top: 8px;">Landing Page (Alta Conversão)</h3>
 
-                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 297</strong><br>Perfeita para vendas rápidas,
-                        captar leads e campanhas de tráfego pago.</p>
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+uma+landing+page+profissional+da+LOGOS"
-                        class="btn btn-primary" style="width: 100%;">Quero este plano</a>
+                    <p style="margin-bottom: 30px;">Perfeita para infoprodutos, serviços, captar leads e alavancar suas campanhas de tráfego pago. Estrutura persuasiva projetada para transformar clique em venda.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+or%C3%A7amento+para+uma+Landing+Page+de+Alta+Convers%C3%A3o"
+                        class="btn btn-primary" style="width: 100%;">Solicitar Orçamento</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line"
                                 style="color: var(--primary);"></i> Página única de alta conversão</li>
@@ -732,12 +778,11 @@
 
                 <!-- Plano 3 -->
                 <div class="service-card" style="text-align: center; border-color: rgba(138, 43, 226, 0.18);">
-                    <h3 style="color: var(--text-main); margin-bottom: 10px;">Loja Virtual</h3>
+                    <h3 style="color: var(--text-main); margin-bottom: 10px;">Loja Virtual E-commerce</h3>
 
-                    <p style="margin-bottom: 30px;"><strong>a partir de R$ 749</strong><br>Para quem quer vender
-                        produtos online com uma estrutura completa.</p>
-                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+e-commerce+profissional+da+LOGOS"
-                        class="btn btn-outline" style="width: 100%;">Quero este plano</a>
+                    <p style="margin-bottom: 30px;">Poderosa plataforma própria para você escalar suas vendas de produtos online, sem depender 100% de marketplaces e sempre com checkout amigável.</p>
+                    <a href="https://wa.me/556281250954?text=Ol%C3%A1%2C+quero+um+or%C3%A7amento+para+uma+Loja+Virtual"
+                        class="btn btn-outline" style="width: 100%;">Solicitar Orçamento</a>
                     <ul style="text-align: left; margin-top: 30px; display: flex; flex-direction: column; gap: 15px;">
                         <li style="display: flex; gap: 10px; color: var(--text-muted);"><i class="ri-check-line"
                                 style="color: var(--primary);"></i> E-commerce profissional</li>
@@ -767,31 +812,28 @@
 
             <div style="max-width: 800px; margin: 0 auto;" class="fade-up">
                 <div class="faq-item">
+                    <div class="faq-question">Como funciona o pagamento? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Oferecemos total flexibilidade: 5% de desconto via PIX Integral; 50% de entrada e 50% na aprovação final do projeto; ou pagamento confortavelmente parcelado no cartão de crédito. Emitimos contrato para sua total segurança jurídica.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Terei um limite de alterações no design? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Não! A LOGOS trabalha para a sua aprovação total. Respeitado o nosso briefing inicial, refinamos o design do seu projeto sem limite de revisões até que você fique 100% satisfeito com o resultado visual.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Quanto custa manter o site no ar todo mês? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">O pagamento pelo desenvolvimento é único e o site é 100% seu, sem taxas recorrentes para a nossa agência. Você só terá os custos obrigatórios de qualquer site na internet para as empresas de infraestrutura: Domínio (aprox. R$45/ano) e Hospedagem (que orientamos a melhor fornecedora).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Por que não fazer sozinho no Wix ou gratuito? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Plataformas como Wix são tentadoras no início, mas travam a performance no longo prazo, deixam o carregamento lento e prejudicam seu posicionamento no Google (SEO). Nós construímos máquinas personalizadas e escaláveis que transmitem altíssima autoridade e carregam muito rápido.</div>
+                </div>
+                <div class="faq-item">
                     <div class="faq-question">Em quanto tempo meu site fica pronto? <i class="ri-add-line"></i></div>
-                    <div class="faq-answer">Geralmente entregamos a primeira versão em até 7 dias úteis após o
-                        recebimento do material, mas isso pode variar conforme a complexidade do projeto.</div>
+                    <div class="faq-answer">Para Landing Pages e Sites Institucionais, entregamos a primeira versão em até 7 dias úteis após todas as informações serem enviadas. O prazo exato sempre será detalhado no momento da apresentação comercial.</div>
                 </div>
                 <div class="faq-item">
-                    <div class="faq-question">Posso atualizar sozinho depois? <i class="ri-add-line"></i></div>
-                    <div class="faq-answer">Sim! as nossas lojas virtuais são desenvolvidos em plataformas amigáveis que
-                        permitem que você faça edições básicas de texto e imagem sem precisar de programador. E Sobre os
-                        demais, para entregrarmos em tempo recorde, com qualidade, fazemos com código, prestamos suporte
-                        para realizar mudanças mais complexas.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Quanto custa para manter? <i class="ri-add-line"></i></div>
-                    <div class="faq-answer">O desenvolvimento do site é pagamento único. Você terá apenas os custos
-                        anuais básicos de domínio (seu nome.com.br) e hospedagem, que orientamos como contratar.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">Eu ganho suporte? <i class="ri-add-line"></i></div>
-                    <div class="faq-answer">Sim, oferecemos suporte completo após a publicação para garantir que tudo
-                        funcione perfeitamente.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">O que está incluído no valor? <i class="ri-add-line"></i></div>
-                    <div class="faq-answer">Está incluído o design, desenvolvimento, configuração de domínio, otimização
-                        para celular, integração com WhatsApp e SEO básico.</div>
+                    <div class="faq-question">E se eu precisar de suporte depois? <i class="ri-add-line"></i></div>
+                    <div class="faq-answer">Trabalhando conosco, você não fica na mão após a entrega do site. Disponibilizamos garantia técnica para certificar que o seu site continue estável, bem como realizamos alterações futuras sob orçamento.</div>
                 </div>
             </div>
         </div>
