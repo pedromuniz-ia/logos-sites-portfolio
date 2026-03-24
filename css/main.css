@@ -82,6 +82,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 120px;
 }
 
 body {
@@ -94,6 +95,24 @@ body {
 ::selection {
     background: rgba(138, 43, 226, 0.35);
     color: #fff;
+}
+
+/* Screen reader only — visible to crawlers/IAs, hidden visually */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Responsive section padding — replaces inline padding: 100px 0 */
+.section-padding {
+    padding: 100px 0;
 }
 
 /* Film grain texture overlay */
@@ -233,6 +252,118 @@ h3 {
     word-break: normal;
     white-space: normal;
     hyphens: none;
+}
+
+/* ==========================================
+   ANIMATED GLOW BORDER — rotating light beam
+   ========================================== */
+@property --glow-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.glow-border {
+    position: relative;
+}
+
+.glow-border::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: conic-gradient(
+        from var(--glow-angle),
+        transparent 50%,
+        rgba(138, 43, 226, 0.4) 68%,
+        rgba(192, 132, 252, 0.9) 78%,
+        rgba(255, 255, 255, 0.6) 80%,
+        rgba(192, 132, 252, 0.9) 82%,
+        rgba(138, 43, 226, 0.4) 92%,
+        transparent 100%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: glow-spin 4s linear infinite, glow-pulse 3s ease-in-out infinite;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.glow-border:hover::after {
+    opacity: 1;
+    animation: glow-spin 2.5s linear infinite;
+}
+
+@keyframes glow-spin {
+    to { --glow-angle: 360deg; }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 0.7; }
+}
+
+/* Featured card — always bright */
+.glow-border--always::after {
+    opacity: 0.8;
+    animation: glow-spin 3s linear infinite;
+}
+.glow-border--always:hover::after {
+    opacity: 1;
+}
+
+/* ==========================================
+   SECTION TRANSITIONS — smooth gradient blends
+   ========================================== */
+
+/* Ensure all sections can hold pseudo-elements */
+section {
+    position: relative;
+}
+
+/*
+ * Strategy: section-light has z-index:10, so it sits ABOVE adjacent dark sections.
+ * → Use ::before (top fade) on section-light to blend IN from previous dark section
+ * → Use ::after  (bottom fade) on section-light to blend OUT to next dark section
+ * This way gradients are always on the higher-z element and stay visible.
+ */
+
+/* TOP FADES — section-light fading IN from dark */
+#por-que::before,
+#servicos::before,
+#sobre::before,
+#depoimentos::before,
+#faq::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to bottom, var(--bg-main), transparent);
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* BOTTOM FADES — section-light fading OUT to dark */
+#por-que::after,
+#servicos::after,
+#processo::after,
+#depoimentos::after,
+#faq::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    background: linear-gradient(to bottom, transparent, var(--bg-main));
+    pointer-events: none;
+    z-index: 3;
 }
 
 /* PREMIUM EFFECTS */
@@ -931,7 +1062,33 @@ header {
     50% { transform: translate3d(15px, -15px, 0) scale(1.05) rotate(5deg); }
 }
 
-/* ─── Section Spacing ─── Clean transitions between sections ──── */\r\nsection {\r\n    position: relative;\r\n}\r\n\r\n/* Subtle gradient line between sections */\r\nsection + section::before {\r\n    content: '';\r\n    position: absolute;\r\n    top: 0;\r\n    left: 10%;\r\n    right: 10%;\r\n    height: 1px;\r\n    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.12), transparent);\r\n    z-index: 5;\r\n}\r\n\r\n/* Pilares / Nossos Valores — proper spacing */\r\n#pilares {\r\n    padding: 100px 0;\r\n}\r\n\r\n.section-light {\r\n    padding: 100px 0;\r\n}
+
+/* ─── Section Spacing ─── Clean transitions between sections ──── */
+section {
+    position: relative;
+}
+
+/* Subtle gradient line between sections */
+section + section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.12), transparent);
+    z-index: 5;
+}
+
+/* Pilares / Nossos Valores — proper spacing */
+#pilares {
+    padding: 100px 0;
+}
+
+.section-light {
+    padding: 100px 0;
+}
+
 
 @media (max-width: 992px) {
     .section-light {
@@ -963,32 +1120,46 @@ header {
         padding: 0 16px;
     }
 
-    /* Image block — STATIC in flow, dominant like Pinacria */
+    /* Portrait mobile — mask-image faz o torso sumir naturalmente */
     .hero-portrait {
         position: relative;
         right: auto;
         bottom: auto;
-        width: 100%;
-        height: 55vh; 
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        height: 65vh;
         max-height: none;
         display: flex;
         justify-content: center;
-        overflow: visible;
-        margin-bottom: -60px; /* Reduced overlap so it doesn't break the layout */
+        align-items: flex-start;
+        overflow: hidden;
+        margin-bottom: -60px;
         padding-top: 0;
     }
 
+    /* Desliga pseudo-elements do desktop */
+    .hero-portrait::after { display: none; }
+    .hero-portrait::before { display: none !important; }
+
+    /* Também desliga o gradiente da section no mobile — não precisa */
+    .hero-plinia::after { display: none; }
+
     .founder-img {
-        width: 100%;
-        height: 100%;
+        width: 260vw;
+        height: auto !important;
         max-width: none;
         max-height: none;
-        object-position: top center;
-        object-fit: cover; 
+        object-fit: unset;
+        object-position: unset;
         margin: 0;
+        margin-top: -8vw;
         display: block;
-        transform: scale(1.05); /* Reduced scale */
-        transform-origin: top center;
+        transform: none;
+        flex-shrink: 0;
+        filter: drop-shadow(0 10px 60px rgba(138,43,226,0.25));
+        /* Fade natural do torso — imagem desaparece no fundo */
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 95%);
     }
 
     .main-glass-card {
@@ -999,6 +1170,14 @@ header {
         text-align: center;
         margin-top: 0;
         border-radius: 24px;
+        background: var(--bg-main);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .light-theme .main-glass-card {
+        background: var(--bg-main);
+        border: 1px solid rgba(0, 0, 0, 0.08);
     }
 
     .hero-title-custom {
@@ -1013,6 +1192,10 @@ header {
     .section-light {
         padding: 60px 0;
     }
+
+    .section-padding {
+        padding: 60px 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1020,15 +1203,13 @@ header {
         padding-top: 30px;
     }
     .hero-portrait {
-        height: 55vh;
-        margin-bottom: -80px;
+        height: 58vh;
+        margin-bottom: -50px;
         padding-top: 0;
     }
     .founder-img {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        max-height: none;
+        width: 280vw;
+        margin-top: -6vw;
     }
     .hero-title-custom {
         font-size: 1.5rem;
@@ -1038,6 +1219,9 @@ header {
     }
     .section-light {
         padding: 40px 0 !important;
+    }
+    .section-padding {
+        padding: 40px 0;
     }
 }
 
@@ -1707,6 +1891,11 @@ header.is-scrolled {
     /* 5 & 6) Enable specific line breaks */
     .mobile-br {
         display: inline;
+    }
+
+    /* Footer: extra bottom padding so WhatsApp float doesn't cover links */
+    footer {
+        padding-bottom: 100px;
     }
 }
 
