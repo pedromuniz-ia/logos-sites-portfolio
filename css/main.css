@@ -2108,3 +2108,20 @@ header.is-scrolled {
         padding-bottom: 32px;
     }
 }
+
+/* Large desktop — push badges right so they don't cover the face */
+@media (min-width: 1440px) {
+    .floating-badges {
+        right: -8%;
+    }
+}
+
+@media (min-width: 1920px) {
+    .floating-badges {
+        right: -14%;
+    }
+
+    .left-cursor {
+        left: 52%;
+    }
+}
