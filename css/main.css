@@ -436,21 +436,21 @@ section {
     width: 200%;
     height: 200%;
     background: linear-gradient(45deg, transparent 45%, rgba(255, 255, 255, 0.1) 50%, transparent 55%);
-    transform: rotate(-45deg);
     animation: shimmer 6s infinite;
+    will-change: transform;
 }
 
 @keyframes shimmer {
     0% {
-        left: -100%;
+        transform: translateX(-100%) rotate(-45deg);
     }
 
     20% {
-        left: 100%;
+        transform: translateX(100%) rotate(-45deg);
     }
 
     100% {
-        left: 100%;
+        transform: translateX(100%) rotate(-45deg);
     }
 }
 
